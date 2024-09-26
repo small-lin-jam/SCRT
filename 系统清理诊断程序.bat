@@ -4,36 +4,36 @@ color 0A&&mode con COLS=120 LINES=50
 setlocal enabledelayedexpansion
 
 rem scan app
-echo ECHO: Լ  С   
+echo ECHO:自检中……
 echo
-echo ECHO:   ڼ         Ŀ¼    
+echo ECHO:正在监察程序运行目录……
 if not exist "%systemdrive%\SCRT" (
-	echo ECHO:δ ҵ         Ŀ¼     ڴ     
+	echo ECHO:未找到程序运行目录！正在创建！
 	md "%systemdrive%\SCRT"
 	if !errorlevel! == 1 (
-		echo WARNING: ޷         Ŀ¼  
+		echo WARNING:无法创建运行目录！
 	)
 ) else (
-	echo ECHO:   ҵ         Ŀ¼          κβ     
+	echo ECHO:已找到程序运行目录！无需进行任何操作！
 )
-echo ECHO: Լ   ɣ 
+echo ECHO:自检完成！
 echo.
-echo      ߣ  ֿ   
-echo ϵͳ      ϳ   [ 汾 8.2.6.0  ʽ  ]
-echo      ߣ  ֿ  ԡ      Ŷӣ Steven Lin Studio   ֿ  Թ    ң           Ȩ    
-echo           ΢  19101717029  ȡ   棡
-echo        ܸ  ˰ Ȩ         ֵ  棬   ϴ    
-echo  ܾ    棬        
-echo    ļ  ܸ   ֪ʶ  Ȩ         Ѿ   Դ       https://github.com/small-lin-jam/SCRT/  
-echo ECHO: Լ   ɣ 
+echo 制作者：林俊辉
+echo 系统清理诊断程序[版本 8.2.6.0正式版]
+echo 制作者：林俊辉。制作团队：Steven Lin Studio（林俊辉工作室）。保留所有权利。
+echo 正版请搜索微信19101717029获取正版！
+echo 本程序受个人版权保护，发现盗版，从严处理！
+echo 拒绝盗版，从我做起！
+echo 本文件受个人知识版权保护，但已经开源，请访问https://github.com/small-lin-jam/SCRT/！
+echo ECHO:自检完成！
 
 rem set
-echo ECHO:  ʼ   С   
-echo ECHO:     С   
-echo ECHO:       û           
+echo ECHO:初始化中……
+echo ECHO:设置中……
+echo ECHO:正在设置基础变量……
 set d=%~s0
-set v=8.2.6.0   ʽ  
-set name=ϵͳ      ϳ   
+set v=8.2.6.0 正式版
+set name=系统清理诊断程序
 set fname=%~n0%
 set type=%~x0
 set SCRT="%cd%\%fname%%type%"
@@ -44,8 +44,8 @@ set aset=%systemdrive%\SCRT\else.set
 set mrtset=%systemdrive%\SCRT\mrt.set
 set uns=%systemdrive%\SCRT\uns.bat
 set tc=%systemdrive%\SCRT\tempclean.bat
-echo ECHO:              ɣ 
-echo ECHO:       ô  󱨴        
+echo ECHO:基础变量设置完成！
+echo ECHO:正在设置错误报错变量……
 set su=F
 set el=F
 set mrtr=F
@@ -57,15 +57,15 @@ set cerr=F
 set serr=F
 set merr=F
 set mrterr=F
-echo ECHO:   ô  󱨴      ɣ 
-echo ECHO:      ɣ 
-echo ECHO:    ж س    С   
+echo ECHO:设置错误报错变量完成！
+echo ECHO:设置完成！
+echo ECHO:创建卸载程序中……
 echo @echo off >"%uns%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%uns%"
-echo title SCRT  ȫ   ó    >>"%uns%"
-echo echo SCRT  ȫ   ó   [ 汾 2.0] >>"%uns%"
-echo echo   ӭʹ  SCRT  ȫж س    >>"%uns%"
-echo echo          밴        ˳   رյ ǰ   ڣ  >>"%uns%"
+echo title SCRT安全重置程序 >>"%uns%"
+echo echo SCRT安全重置程序[版本 2.0] >>"%uns%"
+echo echo 欢迎使用SCRT安全卸载程序！ >>"%uns%"
+echo echo 继续重置请按任意键（退出请关闭当前窗口） >>"%uns%"
 echo pause >>"%uns%"
 echo schtasks /delete /tn "SCRT" /f >>"%uns%"
 echo echo @echo off ^>"%%temp%%\unstc.bat" >>"%uns%"
@@ -74,7 +74,7 @@ echo echo rd /s /q "%%systemdrive%%\SCRT" ^>^>"%%temp%%\unstc.bat" >>"%uns%"
 echo echo exit ^>^>"%%temp%%\unstc.bat" >>"%uns%"
 echo start %%temp%%\unstc.bat >>"%uns%"
 echo exit >>"%uns%"
-echo ECHO:      ɣ 
+echo ECHO:创建完成！
 
 rem logs
 echo ---------------------------------------------------------------------------------------------------- >"%logs%"
@@ -86,13 +86,13 @@ echo.
 echo runbegin >>"%logs%"
 echo ---------------------------------------------------------------------------------------------------- >>"%logs%"
 echo logbegin: >>"%logs%"
-title ϵͳ      ϳ   [ 汾 %v%]
+title 系统清理诊断程序[版本 %v%]
 if !errorlevel! == 1 (
 	set ierr=T
-	echo WARNING:  ʼ  ʧ ܣ 
+	echo WARNING:初始化失败！
 ) 
-echo ECHO:  ʼ    ɣ 
-echo ECHO:  ʼ  ʱ  
+echo ECHO:初始化完成！
+echo ECHO:开始计时！
 set start=%time%
 color 0A&&mode con COLS=120 LINES=50
 cls&&title %name%
@@ -102,121 +102,121 @@ rem initialization end
 
 rem information
 color 0A&&mode con COLS=120 LINES=50
-cls&&title ϵͳ      ϳ   [ 汾 %v%]
-echo -----------------------------------------------------------˵  --------------------------------------------------------
-echo ϵͳ      ϳ   [ 汾 8.2.6.0   ʽ  ] 
-echo      ߣ  ֿ  ԡ      Ŷӣ Steven Lin Studio   ֿ  Թ    ң           Ȩ    
-echo   ˵   ֿ  ԣ      ߣ          н   Ȩ  
-echo   ˵  ˵       п  ܴ  ھ  ׻    µ  κ    ⣡
+cls&&title 系统清理诊断程序[版本 %v%]
+echo -----------------------------------------------------------说明--------------------------------------------------------
+echo 系统清理诊断程序[版本 8.2.6.0 正式版] 
+echo 制作者：林俊辉。制作团队：Steven Lin Studio（林俊辉工作室）。保留所有权利。
+echo 本说明林俊辉（制作者）保留其所有解释权！
+echo 本说明说明了所有可能存在纠纷或刑事的任何问题！
 echo.
-echo          cmd.exe  taskschd.msc  ping.exe  cleanmgr  SFC.exe
-echo          Ȩ    Ȩ     (C) Microsoft Corporation          Ȩ    
-echo       ͨ Բ     ַ  www.baidu.com
-echo         ʱǰ  free.v6ym.com:10571( ֿ  Ը     )    鱾       
+echo 调用软件：cmd.exe；taskschd.msc；ping.exe；cleanmgr；SFC.exe
+echo 调用软件版权：版权所有 (C) Microsoft Corporation。保留所有权利。
+echo 网络连通性测试网址：www.baidu.com
+echo 您可以随时前往free.v6ym.com:10571(林俊辉个人网)并检查本软件更新
 echo.
-echo       ܸ  ˰ Ȩ         ֵ  棬   ϴ    
-echo   ǰ      ˰ Ȩӵ   ߣ Steven   ֿ  ԣ 
-echo       ѿ Դ    ǰ  https://github.com/small-lin-jam/SCRT/  
-echo    棺  ֹ ڸù    н   ֲ 벡   Ȳ       Ϊ  һ     ֣  ϲ飡    
-echo  緢  bug  ֲ 벡        ɽ bug  Ϣ  SCRT.log ļ һ      linjunhui2012@hotmail.com  
+echo 本软件受个人版权保护，发现盗版，从严处理！
+echo 当前软件个人版权拥有者：Steven（林俊辉）
+echo 本软件已开源，请前往https://github.com/small-lin-jam/SCRT/！
+echo 警告：禁止在该工具中进行植入病毒等不正当行为！一经发现，严查！！！
+echo 如发现bug或植入病毒的情况可将bug信息和SCRT.log文件一起发送至linjunhui2012@hotmail.com！
 echo -----------------------------------------------------------------------------------------------------------------------
 TIMEOUT /T 5
 
 rem start set
 color 0A&&mode con COLS=120 LINES=50
-cls&&title %name%&&ver&&echo %name%[ 汾 %v%]&&echo      ߣ  ֿ   &&echo.
-echo   ʼ   У 
+cls&&title %name%&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.
+echo 开始运行！
 echo.
-echo   ʾ       ޸  κ         ǰ  "%systemdrive%\SCRT\uns.bat"       ò   
+echo 提示：如需修改任何设置项请前往"%systemdrive%\SCRT\uns.bat"进行重置操作
 if not exist "%set%" (
-	echo    棺       չ  ΪΣ     Ȼ     ڵ  Կ   ״̬ »ָ    ĵ  ԣ 
-	echo         ͬʱ  ر  û  ˻    ƣ    UAC       ĵ   һ          Ⱦ  
-	echo          ƻ    ĵ  ԣ            Ƽ   ɱ        ʹ ã   
-	set /p ip=    Ҫ  SCRT                𣿣 y/n  :
+	echo 警告：自启动扩展项为危险项，虽然可以在电脑卡死状态下恢复您的电脑，
+	echo       但同时会关闭用户账户控制（简称UAC），您的电脑一旦被病毒感染将
+	echo       会破坏您的电脑，请谨慎开启（推荐与杀毒软件配合使用）！
+	set /p ip=您想要让SCRT自启动并安静运行吗？（y/n）:
 	if "!ip!"=="y" (
 		reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableLUA /t REG_DWORD /d "0" /f
-		echo ECHO:                 
+		echo ECHO:正在启用自启动……
 		Schtasks /Create /SC ONLOGON /TN "SCRT" /TR "%SCRT%" /RL HIGHEST /F
-		echo ECHO:           ɣ 
+		echo ECHO:启用自启动完成！
 		if !errorlevel! == 1 (
 			set UACerr=T
-			echo WARNING:    
+			echo WARNING:错误！
 		) 
 		set su=T
-		echo  򿪳ɹ   
+		echo 打开成功！
 		echo y > "%set%"
 	) else if "!ip!"=="n" (
 		set su=F
-		echo  رճɹ   
+		echo 关闭成功！
 		echo n > "%set%"
 	 ) else (
-		echo   Ч   룬      y   n  
+		echo 无效输入，请输入y或 n。
 	)
 ) else (
 	type "%set%" | findstr /c:"y" >nul && set su=T || set su=F
-	echo            
+	echo 自启动已设置
 )
 echo.
 if not exist "%aset%" (
-	set /p ip=    Ҫ  SCRT      ģʽ     𣿣 y/n  :
-	echo     :    չ   ڲ    Ͼɵ    ϻᵼ ¿  ٣ 
-	echo         ռ  С    CPU   ڴ棬          
+	set /p ip=您想要让SCRT以性能模式运行吗？（y/n）:
+	echo 警告:此扩展项在部分老旧电脑上会导致卡顿，
+	echo       会占用小部分CPU和内存，请谨慎开启！
 	if "!ip!"=="y" (
 		reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v DisableBackoff /t REG_DWORD /d "1" /f
 		if !errorlevel! == 1 (
 			set wsdboerr=T
-			echo WARNING:ע      
+			echo WARNING:注册表错误！
 		) 
 		set el=T
-		echo  򿪳ɹ   
+		echo 打开成功！
 		echo y > "%aset%"
 	) else if "!ip!"=="n" (
 		set el=F
-		echo  رճɹ   
+		echo 关闭成功！
 		echo n > "%aset%"
 	 ) else (
-		echo   Ч   룬      y   n  
+		echo 无效输入，请输入y或 n。
 	)
 ) else (
 	type "%aset%" | findstr /c:"y" >nul && set el=T || set el=F
-	echo     ģʽ      
+	echo 性能模式已设置
 )
 echo.
 if not exist "%mrtset%" (
-	echo   ǿģʽ˵  :ͨ  mrtɾ         ϵĿ    ļ   
-	echo                         ĵ  ԣ 
-	echo     : ˹    ڲ    Ͼɵ    ϻᵼ ¿  ٣           
-	echo            δ  װmrt   °            չ 
-	echo   ʾ:mrtɨ   ٶȽ     Ĭ  ȫ  ɨ 貢 Զ ɾ  Σ  
-	echo                ĵȴ       ȴ   ɨ    ɣ     
-	echo       Ӱ    Ե     ʹ ã   
-	set /p ip=    Ҫ  SCRT    ǿģʽ     𣿣 y/n  :
+	echo 增强模式说明:通过mrt删除您电脑上的可疑文件，
+	echo                来保护您的电脑！
+	echo 警告:此功能在部分老旧电脑上会导致卡顿，请谨慎开启！
+	echo       如电脑未安装mrt更新包，请勿开启此扩展项！
+	echo 提示:mrt扫描速度较慢，默认全盘扫描并自动删除危险
+	echo       程序，请耐心等待（无需等待其扫描完成，不会
+	echo       影响电脑的正常使用）！
+	set /p ip=您想要让SCRT以增强模式运行吗？（y/n）:
 	if "!ip!"=="y" (
 		set mrt=T
-		echo  򿪳ɹ   
+		echo 打开成功！
 		echo y > "%mrtset%"
 	) else if "!ip!"=="n" (
 		set mrt=F
-		echo  رճɹ   
+		echo 关闭成功！
 		echo n > "%mrtset%"
 	 ) else (
-		echo   Ч   룬      y   n  
+		echo 无效输入，请输入y或 n。
 	)
 	TIMEOUT /T 2
 ) else (
 	type "%mrtset%" | findstr /c:"y" >nul && set mrtr=T || set mrtr=F
-	echo   ǿģʽ      
+	echo 增强模式已设置
 )
 
 rem start
 color 0A&&mode con COLS=120 LINES=50
-cls&&title %name%&&ver&&echo %name%[ 汾 %v%]&&echo      ߣ  ֿ   &&echo.
+cls&&title %name%&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.
 
 rem network
-echo     ˢ  DNS   桭  
+echo 正在刷新DNS缓存……
 ipconfig /flushdns
-echo    ڲ         ͨ ԣ www.baidu.com      
-ping www.baidu.com&&echo       ͨ   Ѳ     ɣ 
+echo 正在测试网络连通性（www.baidu.com）……
+ping www.baidu.com&&echo 网络连通性已测试完成！
 if !errorlevel! == 1 (
 	set nperr=T
 ) 
@@ -229,11 +229,11 @@ echo ping#1:www.baidu.com >>"%logs%"
 echo. >>"%logs%"
 echo network-ping end >>"%logs%"
 echo. >>"%logs%"
-echo            ɣ 
+echo 网络测试已完成！
 TIMEOUT /T 2
 
 rem clean
-cls&&ver&&echo %name%[ 汾 %v%]&&echo      ߣ  ֿ   &&echo.&&echo                 ļ     
+cls&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.&&echo 正在清理电脑垃圾文件……
 
 rem cleanlog
 echo clean up directory: >>"%logs%"
@@ -256,9 +256,9 @@ echo directory#15:%systemdrive%\ProgramData\Microsoft\Windows\WER >>"%logs%"
 echo. >>"%logs%"
 echo clean up directory end >>"%logs%"
 echo. >>"%logs%"
-echo          ס     Ե һ ᡭ  
+echo 如遇清理卡住，请稍等一会……
 echo.
-echo   ̨     С   
+echo 后台清理中……
 cleanmgr /sagerun:n /autoclean
 del %windir%\KB*.log /f /s /q >nul 2>nul
 del /f /s /q %systemdrive%\recycled\*.* >nul 2>nul
@@ -279,11 +279,11 @@ rd /s /q %systemdrive%\$WINDOWS.~BT >nul 2>nul
 rd /s /q %windir%\SoftwareDistribution\Download\ >nul 2>nul
 md %windir%\SoftwareDistribution\Download\ >nul 2>nul
 echo.
-echo       ɣ 
+echo 清理完成！
 TIMEOUT /t 2
 
 rem scan
-cls&&ver&&echo %name%[ 汾 %v%]&&echo      ߣ  ֿ   &&echo.&&echo   ʼ  ̨ ޸ ϵͳ ļ   
+cls&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.&&echo 开始后台修复系统文件！
 echo @echo off >"%SFC%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%SFC%"
 echo title SFC.bat >>"%SFC%"
@@ -294,33 +294,33 @@ if %mrtr% == T (
 	echo mrt /q /f:y >>"%SFC%"
 	if !errorlevel! == 1 (
 		set mrterr=T
-		echo WARNING:mrt    д  ʧ ܣ 
+		echo WARNING:mrt命令写入失败！
 	) 
 )
 echo exit >>"%SFC%"
 start /min %SFC%
 if !errorlevel! == 1 (
 	set serr=T
-	echo WARNING:%SFC%  ʧ ܣ 
+	echo WARNING:%SFC%打开失败！
 ) 
-echo   ȴ sfc.bat Զ  ޸    
+echo 请等待sfc.bat自动修复完成
 echo.
 TIMEOUT /t 5
 
 rem memory
-cls&&title %name%&&ver&&echo %name%[ 汾 %v%]&&echo      ߣ  ֿ   &&echo.
-echo   ʼ    ڴ棡
+cls&&title %name%&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.
+echo 开始检查内存！
 wmic memorychip get capacity
 if !errorlevel! == 1 (
 	set merr=T
 ) 
-echo  ڴ     ɣ 
+echo 内存检查完成！
 TIMEOUT /t 2
 
 rem runtime
 set end=%time%
-echo ECHO:      ʱ  
-echo ECHO:   ڼ   ʱ 䡭  
+echo ECHO:结束计时！
+echo ECHO:正在计算时间……
 set options="tokens=1-4 delims=:.,"
 for /f %options% %%a in ("%start%") do set start_h=%%a&set /a start_m=100%%b %% 100&set /a start_s=100%%c %% 100&set /a start_ms=100%%d %% 100
 for /f %options% %%a in ("%end%") do set end_h=%%a&set /a end_m=100%%b %% 100&set /a end_s=100%%c %% 100&set /a end_ms=100%%d %% 100
@@ -335,10 +335,10 @@ if %hours% lss 0 set /a hours = 24%hours%
 if 1%ms% lss 100 set ms=0%ms%
 set /a totalsecs = %hours%*3600 + %mins%*60 + %secs%
 set runtime=%hours%:%mins%:%secs%.%ms% (%totalsecs%.%ms%s total)
-echo ECHO:      ɣ     ʱ  :%runtime%  
+echo ECHO:计算完成！运行时间:%runtime%！
 
 rem logs
-echo ECHO:д    ־ С   
+echo ECHO:写入日志中……
 echo set: >>"%logs%"
 echo staut up=%su% >>"%logs%"
 echo runfaster=%el% >>"%logs%"
@@ -370,26 +370,26 @@ echo. >>"%logs%"
 echo SCRT-runendtime:%date% %time% >>"%logs%"
 echo SCRT-runtime:%runtime% >>"%logs%"
 echo ---------------------------------------------------------------------------------------------------- >>"%logs%"
-echo ECHO:д    ־ ɹ   
+echo ECHO:写入日志成功！
 
 rem SCRTend
-cls&&ver&&echo %name%[ 汾 %v%]&&echo      ߣ  ֿ   &&echo.
-echo       ־  %logs%  
+cls&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.
+echo 运行日志在%logs%中
 echo.
-echo UAC Զ    Ľ       һ     ʱ  Ч  
-echo    鲻Ҫ       װ  %systemdrive%\    Ŷ  
-echo   Ҫ ӿ     ٶȣ   ر           
-echo mrtɨ   ٶȽ         Ѿ      ˴˹  ܣ      ĵȴ   
+echo UAC自动更改将会在下一次启动时生效！
+echo 建议不要把软件安装在%systemdrive%\盘中哦！
+echo 如要加快启动速度，请关闭无用自启动项！
+echo mrt扫描速度较慢，如果已经开启了此功能，请耐心等待！
 echo.
-echo   ǰ    Ŀ¼  %d%
-echo   ǰ ļ   ׺    %type%
+echo 当前运行目录：%d%
+echo 当前文件后缀名：%type%
 echo.
-echo         ʱ 䣺%runtime%
+echo 本次运行时间：%runtime%
 echo.
-echo     ɣ 
-echo 5    Զ  ˳ ......
+echo 已完成！
+echo 5秒后自动退出......
 TIMEOUT /T 5
-echo ECHO:     ˳   
+echo ECHO:正在退出！
 echo @echo off >%tc%
 echo title tempclean.bat >>%tc%
 echo rd /s /q %temp%\ >>%tc%
@@ -399,15 +399,15 @@ start %tc%
 endlocal
 exit
 
-rem    ļ  ܸ   ֪ʶ  Ȩ         Ѿ   Դ       https://github.com/small-lin-jam/SCRT/  
-rem    ļ   Դ     Ͻ  ޸ġ   Ϯ     ݣ 
-rem    ô     Ϣbegin
-rem      ߣ  ֿ  ԡ      Ŷӣ Steven Lin Studio   ֿ  Թ    ң           Ȩ    
-rem ϵͳ      ϳ   [ 汾 8.2.6.0  ʽ  ]
-rem Steven Lin   ֿ  ԣ   Ȩ    
-rem           ΢  19101717029  ȡ   棡
-rem        ܸ  ˰ Ȩ         ֵ  棬   ϴ    
-rem  ܾ    棬        
-rem   test  1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ    ()  :*  .,!  ""%>< й    죬 ۼ ȫ  MADE IN CHINA BY STEVEN LIN
-rem  й    죬 ۼ ȫ  MADE IN CHINA BY STEVEN LIN
-rem    ô     Ϣend
+rem 本文件受个人知识版权保护，但已经开源，请访问https://github.com/small-lin-jam/SCRT/！
+rem 本文件开源，但严禁修改、抄袭其内容！
+rem 备用代码信息begin
+rem 制作者：林俊辉。制作团队：Steven Lin Studio（林俊辉工作室）。保留所有权利。
+rem 系统清理诊断程序[版本 8.2.6.0正式版]
+rem Steven Lin（林俊辉）版权所有
+rem 正版请搜索微信19101717029获取正版！
+rem 本程序受个人版权保护，发现盗版，从严处理！
+rem 拒绝盗版，从我做起！
+rem （test）1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ（）()：:*。.,!！""%><中国智造，慧及全球！MADE IN CHINA BY STEVEN LIN
+rem 中国智造，慧及全球！MADE IN CHINA BY STEVEN LIN
+rem 备用代码信息end
