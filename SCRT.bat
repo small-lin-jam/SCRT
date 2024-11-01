@@ -14,10 +14,10 @@
 ::dAsiuh18IRvcCxnZtBNQ
 ::cRYluBh/LU+EWAjk
 ::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJoZkgaGkrSXA==
-::ZQ05rAF9IBncCkqN+0xwdVsMAlfMaiXqZg==
+::cxY6rQJ7JhzQF1fEqQJoZkgaGkrXXA==
+::ZQ05rAF9IBncCkqN+0xwdVsMAlfMaiXvZg==
 ::ZQ05rAF9IAHYFVzEqQIDCylgLA==
-::eg0/rx1wNQPfEVWB+kM9LVsJDDehDl/a
+::eg0/rx1wNQPfEVWB+kM9LVsJDDehDl/0A60ZiA==
 ::fBEirQZwNQPfEVWB+kM9LVsJDDehDl/a
 ::cRolqwZ3JBvQF1fEqQK23sLQktsH46A862KbEgx9Nw8AUqubtiq4gmtcLmEGxBGcNqlsu1+rNLLSdhyJ0uzeq/Msm+qwdJ3LfIjl
 ::dhA7uBVwLU+EWGqQ8VQ1Jlt4RQrCD3+vArwTiA==
@@ -55,7 +55,7 @@ if not exist "%systemdrive%\SCRT" (
 echo ECHO:自检完成！
 echo.
 echo 制作者：林俊辉
-echo 系统清理诊断程序[版本 8.3.6.0正式版]
+echo 系统清理诊断程序[版本 8.3.6.5正式版]
 echo 制作者：林俊辉。制作团队：Steven Lin Studio（林俊辉工作室）。保留所有权利。
 echo 正版请搜索微信19101717029获取正版！
 echo 本程序受个人版权保护，发现盗版，从严处理！
@@ -68,7 +68,7 @@ echo ECHO:初始化中……
 echo ECHO:设置中……
 echo ECHO:正在设置基础变量……
 set d=%~s0
-set v=8.3.6.0 正式版
+set v=8.3.6.5 正式版
 set name=系统清理诊断程序
 set fname=%~n0%
 set type=%~x0
@@ -139,7 +139,7 @@ rem information
 color 0A&&mode con COLS=120 LINES=50
 cls&&title 系统清理诊断程序[版本 %v%]
 echo -----------------------------------------------------------说明--------------------------------------------------------
-echo 系统清理诊断程序[版本 8.3.6.0 正式版] 
+echo 系统清理诊断程序[版本 8.3.6.5 正式版] 
 echo 制作者：林俊辉。制作团队：Steven Lin Studio（林俊辉工作室）。保留所有权利。
 echo 本说明林俊辉（制作者）保留其所有解释权！
 echo 本说明说明了所有可能存在纠纷或刑事的任何问题！
@@ -166,6 +166,18 @@ echo.
 echo 提示：如需修改任何设置项请前往"%systemdrive%\SCRT\uns.bat"进行重置操作
 if not exist "%set%" (
 	echo SCRT-main.set: >"%set%"
+		set /p ip=您想要设置清理目录吗（sage = 5）？（y/n）:
+	if "!ip!"=="y" (
+		echo 请您在弹出的新窗口中选中要清理的所有文件！
+		cleanmgr /sageset:5
+		echo 设置成功！
+		echo cleanmgrset:F >> "%set%"
+	) else if "!ip!"=="n" (
+		echo 跳过设置过程成功！
+		echo cleanmgrset:F >> "%set%"
+	 ) else (
+		echo 无效输入，请输入y或 n。
+	)
 	echo 警告：自启动扩展项为危险项，会关闭用户账户控制（简称UAC），您的
 	echo       电脑一旦被病毒感染将会破坏您的电脑，请谨慎开启（推荐与
 	echo       杀毒软件配合使用）！
@@ -248,6 +260,8 @@ if not exist "%set%" (
 	)
 	TIMEOUT /T 3
 ) else (
+	echo cleanmgr已设置
+	echo.
 	type "%set%" | findstr /c:"startup:T" >nul && set su=T || set su=F
 	echo 自启动已设置
 	echo.
@@ -296,18 +310,16 @@ echo. >>"%logs%"
 echo directory#1:%windir%\KB*.log >>"%logs%"
 echo directory#2:%temp% >>"%logs%"
 echo directory#3:%windir%\Downloaded Program Files >>"%logs%"
-echo directory#4:%windir%\Prefetch >>"%logs%"
-echo directory#5:%windir%\SoftwareDistribution\Download >>"%logs%"
-echo directory#6:%windir%\System32\LogFiles >>"%logs%"
-echo directory#7:%windir%\Help >>"%logs%"
-echo directory#8:%windir%\temp >>"%logs%"
-echo directory#9:%userprofile%\Downloads >>"%logs%"
-echo directory#10:%userprofile%\Cookies >>"%logs%"
-echo directory#11:%userprofile%\Recent >>"%logs%"
-echo directory#12:%userprofile%\Local Settings\Temporary Internet Files >>"%logs%"
-echo directory#13:%userprofile%\AppData\Local\Microsoft\Windows\INetCache\IE >>"%logs%"
-echo directory#14:%systemdrive%\$WINDOWS.~BT >>"%logs%"
-echo directory#15:%systemdrive%\ProgramData\Microsoft\Windows\WER >>"%logs%"
+echo directory#4:%windir%\SoftwareDistribution\Download >>"%logs%"
+echo directory#5:%windir%\System32\LogFiles >>"%logs%"
+echo directory#6:%windir%\Help >>"%logs%"
+echo directory#7:%userprofile%\Downloads >>"%logs%"
+echo directory#8:%userprofile%\Cookies >>"%logs%"
+echo directory#9:%userprofile%\Recent >>"%logs%"
+echo directory#10:%userprofile%\Local Settings\Temporary Internet Files >>"%logs%"
+echo directory#11:%userprofile%\AppData\Local\Microsoft\Windows\INetCache\IE >>"%logs%"
+echo directory#12:%systemdrive%\$WINDOWS.~BT >>"%logs%"
+echo directory#13%systemdrive%\ProgramData\Microsoft\Windows\WER >>"%logs%"
 echo. >>"%logs%"
 echo clean up directory end >>"%logs%"
 echo. >>"%logs%"
@@ -316,14 +328,13 @@ echo.
 echo 后台清理中……
 echo.
 echo 正在启动cleanmgr……
-cleanmgr /sagerun:n /autoclean
+cleanmgr /sagerun:5 /autoclean
 echo.
 echo 正在自动清理……
 del %windir%\KB*.log /f /s /q >nul 2>nul
 del /f /s /q %systemdrive%\recycled\*.* >nul 2>nul
 del /f /s /q %windir%\*.bak  >nul 2>nul
 del "%windir%\Downloaded Program Files\*.*" /s /q /f >nul 2>nul
-del "%windir%\Prefetch\*.*" /s /q /f >nul 2>nul
 del "%windir%\SoftwareDistribution\Download\*.*" /s /q /f >nul 2>nul
 del "%windir%\System32\LogFiles\*.*" /s /q /f >nul 2>nul
 del "%windir%\Help\*.*" /s /q /f >nul 2>nul
@@ -448,12 +459,6 @@ echo 已完成！
 echo 5秒后自动退出......
 TIMEOUT /T 5
 echo ECHO:正在退出！
-echo @echo off >%tc%
-echo title tempclean.bat >>%tc%
-echo rd /s /q %temp%\ >>%tc%
-echo md %temp%\ >>%tc%
-echo exit >>%tc%
-start %tc%
 endlocal
 exit
 
@@ -461,9 +466,9 @@ rem 本文件受个人知识版权保护，但已经开源，请访问https://github.com/small-lin-jam
 rem 本文件开源，但严禁修改、抄袭其内容！
 rem 备用代码信息begin
 rem 制作者：林俊辉。制作团队：Steven Lin Studio（林俊辉工作室）。保留所有权利。
-rem 系统清理诊断程序[版本 8.3.6.0正式版]
+rem 系统清理诊断程序[版本 8.3.6.5正式版]
 rem Steven Lin（林俊辉）版权所有
-rem 正版请搜索微信19101717029获取正版！
+rem 正版请搜索微信SHlin2012获取正版！
 rem 本程序受个人版权保护，发现盗版，从严处理！
 rem 拒绝盗版，从我做起！
 rem （test）1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ（）()：:*。.,!！""%><中国智造，慧及全球！MADE IN CHINA BY STEVEN LIN
