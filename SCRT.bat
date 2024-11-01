@@ -171,7 +171,7 @@ if not exist "%set%" (
 		echo 请您在弹出的新窗口中选中要清理的所有文件！
 		cleanmgr /sageset:5
 		echo 设置成功！
-		echo cleanmgrset:F >> "%set%"
+		echo cleanmgrset:T >> "%set%"
 	) else if "!ip!"=="n" (
 		echo 跳过设置过程成功！
 		echo cleanmgrset:F >> "%set%"
