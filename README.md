@@ -1,7 +1,11 @@
-This software can help you clean your computer better, faster and more safely! SCRT8.3.6.5 helps you use your computer better! SCRT.bat is source code, in order to follow the open source protocol, we hereby release the SCRT before packaging to serve every user!
-以上文本可以使用翻译软件进行翻译！
-本软件是为了方便快捷的清理电脑而开发，已经开源！
-严禁专卖此软件，也禁止对原创作者进行侮辱、诋毁！仅允许免费修改、转发等免费不违法行为！
-软件原创作者：林俊辉
-当您修改本软件后，请标明原创作者！
-欢迎进入free.v6ym.com:10571获取相关更新！
+The MIT License (MIT)
+
+Copyright © 2024 StevenLin Studio
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Welcome to free.v6ym.com: 10571 to get the latest updates!
