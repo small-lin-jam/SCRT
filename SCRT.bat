@@ -82,8 +82,7 @@ echo @echo off >"%tc%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%tc%"
 echo title SCRT临时文件清理 >>"%tc%"
 echo timeout /t 2 >>"%tc%"
-echo echo del /f /s /q "%%temp%%\*.*" >>"%tc%"
-echo echo exit >>"%tc%"
+echo del /f /s /q "%%temp%%\*.*" >>"%tc%"
 echo exit >>"%tc%"
 echo ECHO:创建完成！
 
@@ -442,7 +441,7 @@ echo 已完成！
 echo 5秒后自动退出......
 TIMEOUT /T 5
 echo ECHO:正在退出！
-start /min "%tc%"
+start /min %tc%
 endlocal
 exit
 
