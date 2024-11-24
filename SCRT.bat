@@ -5,38 +5,38 @@ setlocal enabledelayedexpansion
 chcp 936
 
 rem scan app
-echo ECHO:è‡ªæ£€ä¸­â€¦â€¦
+echo ECHO:×Ô¼ìÖÐ¡­¡­
 echo
-echo ECHO:æ­£åœ¨æ£€æŸ¥ç¨‹åºè¿è¡Œç›®å½•â€¦â€¦
+echo ECHO:ÕýÔÚ¼ì²é³ÌÐòÔËÐÐÄ¿Â¼¡­¡­
 if not exist "%systemdrive%\SCRT" (
-	echo ECHO:æœªæ‰¾åˆ°ç¨‹åºè¿è¡Œç›®å½•ï¼æ­£åœ¨åˆ›å»ºï¼
+	echo ECHO:Î´ÕÒµ½³ÌÐòÔËÐÐÄ¿Â¼£¡ÕýÔÚ´´½¨£¡
 	md "%systemdrive%\SCRT"
 	if !errorlevel! == 1 (
-		echo WARNING:æ— æ³•åˆ›å»ºè¿è¡Œç›®å½•ï¼
+		echo WARNING:ÎÞ·¨´´½¨ÔËÐÐÄ¿Â¼£¡
 	) else (
-		echo ECHO:åˆ›å»ºæˆåŠŸï¼
+		echo ECHO:´´½¨³É¹¦£¡
 	)
 ) else (
-	echo ECHO:å·²æ‰¾åˆ°ç¨‹åºè¿è¡Œç›®å½•ï¼æ— éœ€è¿›è¡Œä»»ä½•æ“ä½œï¼
+	echo ECHO:ÒÑÕÒµ½³ÌÐòÔËÐÐÄ¿Â¼£¡ÎÞÐè½øÐÐÈÎºÎ²Ù×÷£¡
 )
-echo ECHO:è‡ªæ£€å®Œæˆï¼
+echo ECHO:×Ô¼ìÍê³É£¡
 echo.
-echo åˆ¶ä½œè€…ï¼šæž—ä¿Šè¾‰
-echo ç³»ç»Ÿæ¸…ç†è¯Šæ–­ç¨‹åº[ç‰ˆæœ¬ 8.3.6.5æ­£å¼ç‰ˆ]
-echo åˆ¶ä½œè€…ï¼šæž—ä¿Šè¾‰ã€‚åˆ¶ä½œå›¢é˜Ÿï¼šSteven Lin Studioï¼ˆæž—ä¿Šè¾‰å·¥ä½œå®¤ï¼‰ã€‚ä¿ç•™æ‰€æœ‰æƒåˆ©ã€‚
-echo æ­£ç‰ˆè¯·æœç´¢å¾®ä¿¡19101717029èŽ·å–æ­£ç‰ˆï¼
-echo æœ¬ç¨‹åºå—ä¸ªäººç‰ˆæƒä¿æŠ¤ï¼Œå‘çŽ°ç›—ç‰ˆï¼Œä»Žä¸¥å¤„ç†ï¼
-echo æ‹’ç»ç›—ç‰ˆï¼Œä»Žæˆ‘åšèµ·ï¼
-echo æœ¬æ–‡ä»¶å—ä¸ªäººçŸ¥è¯†ç‰ˆæƒä¿æŠ¤ï¼Œä½†å·²ç»å¼€æºï¼Œè¯·è®¿é—®https://github.com/small-lin-jam/SCRT/ï¼
-echo ECHO:è‡ªæ£€å®Œæˆï¼
+echo ÖÆ×÷Õß£ºÁÖ¿¡»Ô
+echo ÏµÍ³ÇåÀíÕï¶Ï³ÌÐò[°æ±¾ 8.3.6.6ÕýÊ½°æ]
+echo ÖÆ×÷Õß£ºÁÖ¿¡»Ô¡£ÖÆ×÷ÍÅ¶Ó£ºSteven Lin Studio£¨ÁÖ¿¡»Ô¹¤×÷ÊÒ£©¡£±£ÁôËùÓÐÈ¨Àû¡£
+echo Õý°æÇëËÑË÷Î¢ÐÅ19101717029»ñÈ¡Õý°æ£¡
+echo ±¾³ÌÐòÊÜ¸öÈË°æÈ¨±£»¤£¬·¢ÏÖµÁ°æ£¬´ÓÑÏ´¦Àí£¡
+echo ¾Ü¾øµÁ°æ£¬´ÓÎÒ×öÆð£¡
+echo ±¾ÎÄ¼þÊÜ¸öÈËÖªÊ¶°æÈ¨±£»¤£¬µ«ÒÑ¾­¿ªÔ´£¬Çë·ÃÎÊhttps://github.com/small-lin-jam/SCRT/£¡
+echo ECHO:×Ô¼ìÍê³É£¡
 
 rem set
-echo ECHO:åˆå§‹åŒ–ä¸­â€¦â€¦
-echo ECHO:è®¾ç½®ä¸­â€¦â€¦
-echo ECHO:æ­£åœ¨è®¾ç½®åŸºç¡€å˜é‡â€¦â€¦
+echo ECHO:³õÊ¼»¯ÖÐ¡­¡­
+echo ECHO:ÉèÖÃÖÐ¡­¡­
+echo ECHO:ÕýÔÚÉèÖÃ»ù´¡±äÁ¿¡­¡­
 set d=%~s0
-set v=8.3.6.5 æ­£å¼ç‰ˆ
-set name=ç³»ç»Ÿæ¸…ç†è¯Šæ–­ç¨‹åº
+set v=8.3.6.6 ÕýÊ½°æ
+set name=ÏµÍ³ÇåÀíÕï¶Ï³ÌÐò
 set fname=%~n0%
 set type=%~x0
 set SCRT="%cd%\%fname%%type%"
@@ -45,8 +45,8 @@ set logs=%systemdrive%\SCRT\SCRT.log
 set set=%systemdrive%\SCRT\main.set
 set uns=%systemdrive%\SCRT\uns.bat
 set tc=%systemdrive%\SCRT\tempclean.bat
-echo ECHO:åŸºç¡€å˜é‡è®¾ç½®å®Œæˆï¼
-echo ECHO:æ­£åœ¨è®¾ç½®é”™è¯¯æŠ¥å‘Šå˜é‡â€¦â€¦
+echo ECHO:»ù´¡±äÁ¿ÉèÖÃÍê³É£¡
+echo ECHO:ÕýÔÚÉèÖÃ´íÎó±¨¸æ±äÁ¿¡­¡­
 set su=F
 set tb=F
 set sfcs=F
@@ -59,15 +59,15 @@ set cerr=F
 set serr=F
 set merr=F
 set mrterr=F
-echo ECHO:è®¾ç½®é”™è¯¯æŠ¥å‘Šå˜é‡å®Œæˆï¼
-echo ECHO:è®¾ç½®å®Œæˆï¼
-echo ECHO:åˆ›å»ºå¸è½½ç¨‹åºä¸­â€¦â€¦
+echo ECHO:ÉèÖÃ´íÎó±¨¸æ±äÁ¿Íê³É£¡
+echo ECHO:ÉèÖÃÍê³É£¡
+echo ECHO:´´½¨Ð¶ÔØ³ÌÐòÖÐ¡­¡­
 echo @echo off >"%uns%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%uns%"
-echo title SCRTå®‰å…¨é‡ç½®ç¨‹åº >>"%uns%"
-echo echo SCRTå®‰å…¨é‡ç½®ç¨‹åº[ç‰ˆæœ¬ 2.0] >>"%uns%"
-echo echo æ¬¢è¿Žä½¿ç”¨SCRTå®‰å…¨å¸è½½ç¨‹åºï¼ >>"%uns%"
-echo echo ç»§ç»­é‡ç½®è¯·æŒ‰ä»»æ„é”®ï¼ˆé€€å‡ºè¯·å…³é—­å½“å‰çª—å£ï¼‰ >>"%uns%"
+echo title SCRT°²È«ÖØÖÃ³ÌÐò >>"%uns%"
+echo echo SCRT°²È«ÖØÖÃ³ÌÐò[°æ±¾ 2.0] >>"%uns%"
+echo echo »¶Ó­Ê¹ÓÃSCRT°²È«Ð¶ÔØ³ÌÐò£¡ >>"%uns%"
+echo echo ¼ÌÐøÖØÖÃÇë°´ÈÎÒâ¼ü£¨ÍË³öÇë¹Ø±Õµ±Ç°´°¿Ú£© >>"%uns%"
 echo pause >>"%uns%"
 echo schtasks /delete /tn "SCRT" /f >>"%uns%"
 echo echo @echo off ^>"%%temp%%\unstc.bat" >>"%uns%"
@@ -76,7 +76,16 @@ echo echo rd /s /q "%%systemdrive%%\SCRT" ^>^>"%%temp%%\unstc.bat" >>"%uns%"
 echo echo exit ^>^>"%%temp%%\unstc.bat" >>"%uns%"
 echo start %%temp%%\unstc.bat >>"%uns%"
 echo exit >>"%uns%"
-echo ECHO:åˆ›å»ºå®Œæˆï¼
+echo ECHO:´´½¨Íê³É£¡
+echo ECHO:´´½¨ÁÙÊ±ÎÄ¼þÇåÀí³ÌÐòÖÐ¡­¡­
+echo @echo off >"%tc%"
+echo color 0A^&^mode con COLS=120 LINES=50 >>"%tc%"
+echo title SCRTÁÙÊ±ÎÄ¼þÇåÀí >>"%tc%"
+echo timeout /t 2 >>"%tc%"
+echo echo del /f /s /q "%%temp%%\*.*" >>"%tc%"
+echo echo exit >>"%tc%"
+echo exit >>"%tc%"
+echo ECHO:´´½¨Íê³É£¡
 
 rem logs
 echo ---------------------------------------------------------------------------------------------------- >"%logs%"
@@ -88,13 +97,13 @@ echo.
 echo runbegin >>"%logs%"
 echo ---------------------------------------------------------------------------------------------------- >>"%logs%"
 echo logbegin: >>"%logs%"
-title ç³»ç»Ÿæ¸…ç†è¯Šæ–­ç¨‹åº[ç‰ˆæœ¬ %v%]
+title ÏµÍ³ÇåÀíÕï¶Ï³ÌÐò[°æ±¾ %v%]
 if !errorlevel! == 1 (
 	set ierr=T
-	echo WARNING:åˆå§‹åŒ–å¤±è´¥ï¼
+	echo WARNING:³õÊ¼»¯Ê§°Ü£¡
 ) 
-echo ECHO:åˆå§‹åŒ–å®Œæˆï¼
-echo ECHO:å¼€å§‹è®¡æ—¶ï¼
+echo ECHO:³õÊ¼»¯Íê³É£¡
+echo ECHO:¿ªÊ¼¼ÆÊ±£¡
 set start=%time%
 color 0A&&mode con COLS=120 LINES=50
 cls&&title %name%
@@ -104,155 +113,164 @@ rem initialization end
 
 rem information
 color 0A&&mode con COLS=120 LINES=50
-cls&&title ç³»ç»Ÿæ¸…ç†è¯Šæ–­ç¨‹åº[ç‰ˆæœ¬ %v%]
-echo -----------------------------------------------------------è¯´æ˜Ž--------------------------------------------------------
-echo ç³»ç»Ÿæ¸…ç†è¯Šæ–­ç¨‹åº[ç‰ˆæœ¬ 8.3.6.5 æ­£å¼ç‰ˆ] 
-echo åˆ¶ä½œè€…ï¼šæž—ä¿Šè¾‰ã€‚åˆ¶ä½œå›¢é˜Ÿï¼šSteven Lin Studioï¼ˆæž—ä¿Šè¾‰å·¥ä½œå®¤ï¼‰ã€‚ä¿ç•™æ‰€æœ‰æƒåˆ©ã€‚
-echo æœ¬è¯´æ˜Žæž—ä¿Šè¾‰ï¼ˆåˆ¶ä½œè€…ï¼‰ä¿ç•™å…¶æ‰€æœ‰è§£é‡Šæƒï¼
-echo æœ¬è¯´æ˜Žè¯´æ˜Žäº†æ‰€æœ‰å¯èƒ½å­˜åœ¨çº çº·æˆ–åˆ‘äº‹çš„ä»»ä½•é—®é¢˜ï¼
+cls&&title ÏµÍ³ÇåÀíÕï¶Ï³ÌÐò[°æ±¾ %v%]
+echo -----------------------------------------------------------ËµÃ÷--------------------------------------------------------
+echo ÏµÍ³ÇåÀíÕï¶Ï³ÌÐò[°æ±¾ 8.3.6.6 ÕýÊ½°æ] 
+echo ÖÆ×÷Õß£ºÁÖ¿¡»Ô¡£ÖÆ×÷ÍÅ¶Ó£ºSteven Lin Studio£¨ÁÖ¿¡»Ô¹¤×÷ÊÒ£©¡£±£ÁôËùÓÐÈ¨Àû¡£
+echo ±¾ËµÃ÷ÁÖ¿¡»Ô£¨ÖÆ×÷Õß£©±£ÁôÆäËùÓÐ½âÊÍÈ¨£¡
+echo ±¾ËµÃ÷ËµÃ÷ÁËËùÓÐ¿ÉÄÜ´æÔÚ¾À·×»òÐÌÊÂµÄÈÎºÎÎÊÌâ£¡
 echo.
-echo è°ƒç”¨è½¯ä»¶ï¼šcmd.exeï¼›taskschd.mscï¼›ping.exeï¼›cleanmgrï¼›SFC.exe
-echo è°ƒç”¨è½¯ä»¶ç‰ˆæƒï¼šç‰ˆæƒæ‰€æœ‰ (C) Microsoft Corporationã€‚ä¿ç•™æ‰€æœ‰æƒåˆ©ã€‚
-echo ç½‘ç»œè¿žé€šæ€§æµ‹è¯•ç½‘å€ï¼šwww.baidu.com
-echo æ‚¨å¯ä»¥éšæ—¶å‰å¾€free.v6ym.com:10571(æž—ä¿Šè¾‰ä¸ªäººç½‘)å¹¶æ£€æŸ¥æœ¬è½¯ä»¶æ›´æ–°
+echo µ÷ÓÃÈí¼þ£ºcmd.exe£»taskschd.msc£»ping.exe£»cleanmgr£»SFC.exe
+echo µ÷ÓÃÈí¼þ°æÈ¨£º°æÈ¨ËùÓÐ (C) Microsoft Corporation¡£±£ÁôËùÓÐÈ¨Àû¡£
+echo ÍøÂçÁ¬Í¨ÐÔ²âÊÔÍøÖ·£ºwww.baidu.com
+echo Äú¿ÉÒÔËæÊ±Ç°Íùfree.v6ym.com:10571(ÁÖ¿¡»Ô¸öÈËÍø)²¢¼ì²é±¾Èí¼þ¸üÐÂ
 echo.
-echo æœ¬è½¯ä»¶å—ä¸ªäººç‰ˆæƒä¿æŠ¤ï¼Œå‘çŽ°ç›—ç‰ˆï¼Œä»Žä¸¥å¤„ç†ï¼
-echo å½“å‰è½¯ä»¶ä¸ªäººç‰ˆæƒæ‹¥æœ‰è€…ï¼šStevenï¼ˆæž—ä¿Šè¾‰ï¼‰
-echo æœ¬è½¯ä»¶å·²å¼€æºï¼Œè¯·å‰å¾€https://github.com/small-lin-jam/SCRT/ï¼
-echo è­¦å‘Šï¼šç¦æ­¢åœ¨è¯¥å·¥å…·ä¸­è¿›è¡Œæ¤å…¥ç—…æ¯’ç­‰ä¸æ­£å½“è¡Œä¸ºï¼ä¸€ç»å‘çŽ°ï¼Œä¸¥æŸ¥ï¼ï¼ï¼
-echo å¦‚å‘çŽ°bugæˆ–æ¤å…¥ç—…æ¯’çš„æƒ…å†µå¯å°†bugä¿¡æ¯å’ŒSCRT.logæ–‡ä»¶ä¸€èµ·å‘é€è‡³linjunhui2012@hotmail.comï¼
+echo ±¾Èí¼þÊÜ¸öÈË°æÈ¨±£»¤£¬·¢ÏÖµÁ°æ£¬´ÓÑÏ´¦Àí£¡
+echo µ±Ç°Èí¼þ¸öÈË°æÈ¨ÓµÓÐÕß£ºSteven£¨ÁÖ¿¡»Ô£©
+echo ±¾Èí¼þÒÑ¿ªÔ´£¬ÇëÇ°Íùhttps://github.com/small-lin-jam/SCRT/£¡
+echo ¾¯¸æ£º½ûÖ¹ÔÚ¸Ã¹¤¾ßÖÐ½øÐÐÖ²Èë²¡¶¾µÈ²»Õýµ±ÐÐÎª£¡Ò»¾­·¢ÏÖ£¬ÑÏ²é£¡£¡£¡
+echo Èç·¢ÏÖbug»òÖ²Èë²¡¶¾µÄÇé¿ö¿É½«bugÐÅÏ¢ºÍSCRT.logÎÄ¼þÒ»Æð·¢ËÍÖÁlinjunhui2012@hotmail.com£¡
 echo -----------------------------------------------------------------------------------------------------------------------
 TIMEOUT /T 5
 
 rem start set
 color 0A&&mode con COLS=120 LINES=50
-cls&&title %name%&&ver&&echo %name%[ç‰ˆæœ¬ %v%]&&echo åˆ¶ä½œè€…ï¼šæž—ä¿Šè¾‰&&echo.
-echo å¼€å§‹è¿è¡Œï¼
-echo æ¸©é¦¨æç¤ºï¼šæ²¡è®¾ç½®çš„é¡¹å¯ä»¥å°†"%systemdrive%\SCRT\main.set"åˆ é™¤
+cls&&title %name%&&ver&&echo %name%[°æ±¾ %v%]&&echo ÖÆ×÷Õß£ºÁÖ¿¡»Ô&&echo.
+echo ¿ªÊ¼ÔËÐÐ£¡
+echo ÎÂÜ°ÌáÊ¾£ºÃ»ÉèÖÃµÄÏî¿ÉÒÔ½«"%systemdrive%\SCRT\main.set"É¾³ý
 echo.
-echo æç¤ºï¼šå¦‚éœ€ä¿®æ”¹ä»»ä½•è®¾ç½®é¡¹è¯·å‰å¾€"%systemdrive%\SCRT\uns.bat"è¿›è¡Œé‡ç½®æ“ä½œ
+echo ÌáÊ¾£ºÈçÐèÐÞ¸ÄÈÎºÎÉèÖÃÏîÇëÇ°Íù"%systemdrive%\SCRT\uns.bat"½øÐÐÖØÖÃ²Ù×÷
 if not exist "%set%" (
 	echo SCRT-main.set: >"%set%"
-		set /p ip=æ‚¨æƒ³è¦è®¾ç½®æ¸…ç†ç›®å½•å—ï¼ˆsage = 5ï¼‰ï¼Ÿï¼ˆy/nï¼‰:
+		set /p ip=ÄúÏëÒªÉèÖÃÇåÀíÄ¿Â¼Âð£¨sage = 5£©£¿£¨y/n£©:
 	if "!ip!"=="y" (
-		echo è¯·æ‚¨åœ¨å¼¹å‡ºçš„æ–°çª—å£ä¸­é€‰ä¸­è¦æ¸…ç†çš„æ‰€æœ‰æ–‡ä»¶ï¼
+		echo ÇëÄúÔÚµ¯³öµÄÐÂ´°¿ÚÖÐÑ¡ÖÐÒªÇåÀíµÄËùÓÐÎÄ¼þ£¡
 		cleanmgr /sageset:5
-		echo è®¾ç½®æˆåŠŸï¼
+		echo ÉèÖÃ³É¹¦£¡
 		echo cleanmgrset:T >> "%set%"
 	) else if "!ip!"=="n" (
-		echo è·³è¿‡è®¾ç½®è¿‡ç¨‹æˆåŠŸï¼
+		echo Ìø¹ýÉèÖÃ¹ý³Ì³É¹¦£¡
 		echo cleanmgrset:F >> "%set%"
 	 ) else (
-		echo æ— æ•ˆè¾“å…¥ï¼Œè¯·è¾“å…¥yæˆ– nã€‚
+		echo ÎÞÐ§ÊäÈë£¬ÇëÊäÈëy»ò n¡£
 	)
-	echo è­¦å‘Šï¼šè‡ªå¯åŠ¨æ‰©å±•é¡¹ä¸ºå±é™©é¡¹ï¼Œä¼šå…³é—­ç”¨æˆ·è´¦æˆ·æŽ§åˆ¶ï¼ˆç®€ç§°UACï¼‰ï¼Œæ‚¨çš„
-	echo       ç”µè„‘ä¸€æ—¦è¢«ç—…æ¯’æ„ŸæŸ“å°†ä¼šç ´åæ‚¨çš„ç”µè„‘ï¼Œè¯·è°¨æ…Žå¼€å¯ï¼ˆæŽ¨èä¸Ž
-	echo       æ€æ¯’è½¯ä»¶é…åˆä½¿ç”¨ï¼‰ï¼
-	set /p ip=æ‚¨æƒ³è¦è®©SCRTè‡ªå¯åŠ¨å¹¶å®‰é™è¿è¡Œå—ï¼Ÿï¼ˆy/nï¼‰:
+	echo.
+	echo ¾¯¸æ£º×ÔÆô¶¯À©Õ¹ÏîÎªÎ£ÏÕÏî£¬»á¹Ø±ÕÓÃ»§ÕË»§¿ØÖÆ£¨¼ò³ÆUAC£©£¬ÄúµÄ
+	echo       µçÄÔÒ»µ©±»²¡¶¾¸ÐÈ¾½«»áÆÆ»µÄúµÄµçÄÔ£¬Çë½÷É÷¿ªÆô£¨ÍÆ¼öÓë
+	echo       É±¶¾Èí¼þÅäºÏÊ¹ÓÃ£©£¡
+	set /p ip=ÄúÏëÒªÈÃSCRT×ÔÆô¶¯²¢°²¾²ÔËÐÐÂð£¿£¨y/n£©:
 	if "!ip!"=="y" (
 		reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableLUA /t REG_DWORD /d "0" /f
-		echo ECHO:æ­£åœ¨å¯ç”¨è‡ªå¯åŠ¨â€¦â€¦
+		echo ECHO:ÕýÔÚÆôÓÃ×ÔÆô¶¯¡­¡­
 		Schtasks /Create /SC ONLOGON /TN "SCRT" /TR "%SCRT%" /RL HIGHEST /F
-		echo ECHO:å¯ç”¨è‡ªå¯åŠ¨å®Œæˆï¼
+		echo ECHO:ÆôÓÃ×ÔÆô¶¯Íê³É£¡
 		if !errorlevel! == 1 (
 			set UACerr=T
-			echo WARNING:é”™è¯¯ï¼
+			echo WARNING:´íÎó£¡
 		) 
 		set su=T
-		echo æ‰“å¼€æˆåŠŸï¼
+		echo ´ò¿ª³É¹¦£¡
 		echo startup:T >> "%set%"
 	) else if "!ip!"=="n" (
 		set su=F
-		echo å…³é—­æˆåŠŸï¼
+		echo ¹Ø±Õ³É¹¦£¡
 		echo startup:F >> "%set%"
 	 ) else (
-		echo æ— æ•ˆè¾“å…¥ï¼Œè¯·è¾“å…¥yæˆ– nã€‚
+		echo ÎÞÐ§ÊäÈë£¬ÇëÊäÈëy»ò n¡£
 	)
 	echo.
-	echo è­¦å‘Š:æ­¤æ‰©å±•é¡¹åœ¨éƒ¨åˆ†æ€§èƒ½ä¸ä½³çš„ç”µè„‘ä¸Šä¼šå¯¼è‡´å¡é¡¿ï¼Œä¼šå ç”¨å°éƒ¨åˆ†CPUå’Œå†…å­˜
-	echo       è¯·è°¨æ…Žå¼€å¯ï¼
-	set /p ip=æ‚¨æƒ³è¦è®©SCRTä»¥é«˜æ€§èƒ½æ¨¡å¼è¿è¡Œå—ï¼Ÿï¼ˆy/nï¼‰:
+	echo ¾¯¸æ:´ËÀ©Õ¹ÏîÔÚ²¿·ÖÐÔÄÜ²»¼ÑµÄµçÄÔÉÏ»áµ¼ÖÂ¿¨¶Ù£¬»áÕ¼ÓÃÐ¡²¿·ÖCPUºÍÄÚ´æ
+	echo       Çë½÷É÷¿ªÆô£¡
+	set /p ip=ÄúÏëÒªÈÃSCRTÒÔ¸ßÐÔÄÜÄ£Ê½ÔËÐÐÂð£¿£¨y/n£©:
 	if "!ip!"=="y" (
 		reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v DisableBackoff /t REG_DWORD /d "1" /f
 		if !errorlevel! == 1 (
 			set wsdboerr=T
-			echo WARNING:æ³¨å†Œè¡¨é”™è¯¯ï¼
+			echo WARNING:×¢²á±í´íÎó£¡
 		) 
 		set tb=T
-		echo æ‰“å¼€æˆåŠŸï¼
+		echo ´ò¿ª³É¹¦£¡
 		echo turboset:T >> "%set%"
 	) else if "!ip!"=="n" (
 		set tb=F
-		echo å…³é—­æˆåŠŸï¼
+		echo ¹Ø±Õ³É¹¦£¡
 		echo turboset:F >> "%set%"
 	) else (
-		echo æ— æ•ˆè¾“å…¥ï¼Œè¯·è¾“å…¥yæˆ– nã€‚
+		echo ÎÞÐ§ÊäÈë£¬ÇëÊäÈëy»ò n¡£
 	)
 	echo.
-	echo æ¢å¤æ¨¡å¼è¯´æ˜Ž:æ¯æ¬¡è¿è¡ŒSCRTæ—¶ä¼šè‡ªåŠ¨å°è¯•ä¿®å¤è¢«æ¶æ„è½¯ä»¶ä¿®æ”¹çš„
-	echo                ç³»ç»Ÿæ–‡ä»¶ï¼Œç‰¹åˆ«æ˜¯ä¸­ç—…æ¯’æˆ–ç‰¹æ®Šæƒ…å†µå¯¼è‡´æ–‡ä»¶æŸåæ—¶ï¼
-	echo è­¦å‘Š:æ­¤åŠŸèƒ½åœ¨éƒ¨åˆ†æ€§èƒ½ä¸ä½³çš„ç”µè„‘ä¸Šä¼šå¯¼è‡´å¡é¡¿ï¼Œè¯·è°¨æ…Žå¼€å¯ï¼
-	set /p ip=æ‚¨æƒ³è¦è®©SCRTä»¥å¢žå¼ºæ¨¡å¼è¿è¡Œå—ï¼Ÿï¼ˆy/nï¼‰:
+	echo »Ö¸´Ä£Ê½ËµÃ÷:Ã¿´ÎÔËÐÐSCRTÊ±»á×Ô¶¯³¢ÊÔÐÞ¸´±»¶ñÒâÈí¼þÐÞ¸ÄµÄ
+	echo                ÏµÍ³ÎÄ¼þ£¬ÌØ±ðÊÇÖÐ²¡¶¾»òÌØÊâÇé¿öµ¼ÖÂÎÄ¼þËð»µÊ±£¡
+	echo ¾¯¸æ:´Ë¹¦ÄÜÔÚ²¿·ÖÐÔÄÜ²»¼ÑµÄµçÄÔÉÏ»áµ¼ÖÂ¿¨¶Ù£¬Çë½÷É÷¿ªÆô£¡
+	set /p ip=ÄúÏëÒªÈÃSCRTÒÔÔöÇ¿Ä£Ê½ÔËÐÐÂð£¿£¨y/n£©:
 	if "!ip!"=="y" (
 		set sfcs=T
-		echo æ‰“å¼€æˆåŠŸï¼
+		echo ´ò¿ª³É¹¦£¡
 		echo sfcset:T >> "%set%"
+		echo.
+		echo ÔöÇ¿Ä£Ê½ËµÃ÷:Í¨¹ýmrtÉ¾³ýÄúµçÄÔÉÏµÄ¿ÉÒÉÎÄ¼þ£¬
+		echo               À´±£»¤ÄúµÄµçÄÔ£¡Èç¹û»Ö¸´Ä£Ê½Î´¿ª
+		echo               Æô£¬Ôò´ËÏîÎÞÐ§£¡
+		echo ¾¯¸æ:´Ë¹¦ÄÜÔÚ²¿·ÖÐÔÄÜ²»¼ÑµÄµçÄÔÉÏ»áµ¼ÖÂ¿¨¶Ù£¬Çë½÷É÷¿ªÆô£¡
+		echo       ÈçµçÄÔÎ´°²×°mrt¸üÐÂ°ü£¬ÇëÎð¿ªÆô´ËÀ©Õ¹Ïî£¡
+		echo ÌáÊ¾:mrtÉ¨ÃèËÙ¶È½ÏÂý£¬Ä¬ÈÏÈ«ÅÌÉ¨Ãè²¢×Ô¶¯É¾³ýÎ£ÏÕ
+		echo       ³ÌÐò£¬ÇëÄÍÐÄµÈ´ý£¨ÎÞÐèµÈ´ýÆäÉ¨ÃèÍê³É£¬²»»á
+		echo       Ó°ÏìµçÄÔµÄÕý³£Ê¹ÓÃ£©£¡
+		set /p ip=ÄúÏëÒªÈÃSCRTÒÔÔöÇ¿Ä£Ê½ÔËÐÐÂð£¿£¨y/n£©:
+		if "!ip!"=="y" (
+			set mrts=T
+			echo ´ò¿ª³É¹¦£¡
+			echo mrtset:T >> "%set%"
+		) else if "!ip!"=="n" (
+			set mrts=F
+			echo ¹Ø±Õ³É¹¦£¡
+			echo mrtset:F >> "%set%"
+		) else (
+			echo ÎÞÐ§ÊäÈë£¬ÇëÊäÈëy»ò n¡£
+		)
 	) else if "!ip!"=="n" (
 		set sfcs=F
-		echo å…³é—­æˆåŠŸï¼
-		echo sfcset:F >> "%set%"
-	 ) else (
-		echo æ— æ•ˆè¾“å…¥ï¼Œè¯·è¾“å…¥yæˆ– nã€‚
-	)
-	echo.
-	echo å¢žå¼ºæ¨¡å¼è¯´æ˜Ž:é€šè¿‡mrtåˆ é™¤æ‚¨ç”µè„‘ä¸Šçš„å¯ç–‘æ–‡ä»¶ï¼Œ
-	echo               æ¥ä¿æŠ¤æ‚¨çš„ç”µè„‘ï¼å¦‚æžœæ¢å¤æ¨¡å¼æœªå¼€
-	echo               å¯ï¼Œåˆ™æ­¤é¡¹æ— æ•ˆï¼
-	echo è­¦å‘Š:æ­¤åŠŸèƒ½åœ¨éƒ¨åˆ†æ€§èƒ½ä¸ä½³çš„ç”µè„‘ä¸Šä¼šå¯¼è‡´å¡é¡¿ï¼Œè¯·è°¨æ…Žå¼€å¯ï¼
-	echo       å¦‚ç”µè„‘æœªå®‰è£…mrtæ›´æ–°åŒ…ï¼Œè¯·å‹¿å¼€å¯æ­¤æ‰©å±•é¡¹ï¼
-	echo æç¤º:mrtæ‰«æé€Ÿåº¦è¾ƒæ…¢ï¼Œé»˜è®¤å…¨ç›˜æ‰«æå¹¶è‡ªåŠ¨åˆ é™¤å±é™©
-	echo       ç¨‹åºï¼Œè¯·è€å¿ƒç­‰å¾…ï¼ˆæ— éœ€ç­‰å¾…å…¶æ‰«æå®Œæˆï¼Œä¸ä¼š
-	echo       å½±å“ç”µè„‘çš„æ­£å¸¸ä½¿ç”¨ï¼‰ï¼
-	set /p ip=æ‚¨æƒ³è¦è®©SCRTä»¥å¢žå¼ºæ¨¡å¼è¿è¡Œå—ï¼Ÿï¼ˆy/nï¼‰:
-	if "!ip!"=="y" (
-		set mrts=T
-		echo æ‰“å¼€æˆåŠŸï¼
-		echo mrtset:T >> "%set%"
-	) else if "!ip!"=="n" (
 		set mrts=F
-		echo å…³é—­æˆåŠŸï¼
+		echo ¹Ø±Õ³É¹¦£¡
+		echo sfcset:F >> "%set%"
 		echo mrtset:F >> "%set%"
 	 ) else (
-		echo æ— æ•ˆè¾“å…¥ï¼Œè¯·è¾“å…¥yæˆ– nã€‚
+		echo ÎÞÐ§ÊäÈë£¬ÇëÊäÈëy»ò n¡£
 	)
 	TIMEOUT /T 3
 ) else (
-	echo cleanmgrå·²è®¾ç½®
+	echo cleanmgrÒÑÉèÖÃ
 	echo.
 	type "%set%" | findstr /c:"startup:T" >nul && set su=T || set su=F
-	echo è‡ªå¯åŠ¨å·²è®¾ç½®
+	echo ×ÔÆô¶¯ÒÑÉèÖÃ
 	echo.
 	type "%set%" | findstr /c:"turboset:T" >nul && set tb=T || set tb=F
-	echo æ€§èƒ½æ¨¡å¼å·²è®¾ç½®
+	echo ÐÔÄÜÄ£Ê½ÒÑÉèÖÃ
 	echo.
 	type "%set%" | findstr /c:"sfcset:T" >nul && set sfcs=T || set sfcs=F
-	echo æ¢å¤æ¨¡å¼å·²è®¾ç½®
+	echo »Ö¸´Ä£Ê½ÒÑÉèÖÃ
 	echo.
 	type "%set%" | findstr /c:"mrtset:T" >nul && set mrts=T || set mrts=F
-	echo å¢žå¼ºæ¨¡å¼å·²è®¾ç½®
+	echo ÔöÇ¿Ä£Ê½ÒÑÉèÖÃ
 )
 echo.
 
 rem start
 color 0A&&mode con COLS=120 LINES=50
-cls&&title %name%&&ver&&echo %name%[ç‰ˆæœ¬ %v%]&&echo åˆ¶ä½œè€…ï¼šæž—ä¿Šè¾‰&&echo.
+cls&&title %name%&&ver&&echo %name%[°æ±¾ %v%]&&echo ÖÆ×÷Õß£ºÁÖ¿¡»Ô&&echo.
 
 rem network
-echo æ­£åœ¨åˆ·æ–°DNSç¼“å­˜â€¦â€¦
+echo ÕýÔÚÇåÀíÍøÂç»º´æ¡­¡­
+del "%userprofile%\Local Settings\Temporary Internet Files\*.*" /s /q /f >nul 2>nul
+echo ÇåÀíÍê³É£¡
+echo.
+echo ÕýÔÚË¢ÐÂDNS»º´æ¡­¡­
 ipconfig /flushdns
-echo æ­£åœ¨æµ‹è¯•ç½‘ç»œè¿žé€šæ€§ï¼ˆwww.baidu.comï¼‰â€¦â€¦
+echo Ë¢ÐÂ»º´æÍê³É£¡
+echo.
+echo ÕýÔÚ²âÊÔÍøÂçÁ¬Í¨ÐÔ£¨www.baidu.com£©¡­¡­
 ping www.baidu.com
-echo ç½‘ç»œè¿žé€šæ€§å·²æµ‹è¯•å®Œæˆï¼
+echo ÍøÂçÁ¬Í¨ÐÔÒÑ²âÊÔÍê³É£¡
 if !errorlevel! == 1 (
 	set nperr=T
 ) 
@@ -265,11 +283,11 @@ echo ping#1:www.baidu.com >>"%logs%"
 echo. >>"%logs%"
 echo network-ping end >>"%logs%"
 echo. >>"%logs%"
-echo ç½‘ç»œæµ‹è¯•å·²å®Œæˆï¼
+echo ÍøÂç²âÊÔÒÑÍê³É£¡
 TIMEOUT /T 2
 
 rem clean
-cls&&ver&&echo %name%[ç‰ˆæœ¬ %v%]&&echo åˆ¶ä½œè€…ï¼šæž—ä¿Šè¾‰&&echo.&&echo æ­£åœ¨æ¸…ç†ç”µè„‘åžƒåœ¾æ–‡ä»¶â€¦â€¦
+cls&&ver&&echo %name%[°æ±¾ %v%]&&echo ÖÆ×÷Õß£ºÁÖ¿¡»Ô&&echo.&&echo ÕýÔÚÇåÀíµçÄÔÀ¬»øÎÄ¼þ¡­¡­
 
 rem cleanlog
 echo clean up directory: >>"%logs%"
@@ -283,21 +301,20 @@ echo directory#6:%windir%\Help >>"%logs%"
 echo directory#7:%userprofile%\Downloads >>"%logs%"
 echo directory#8:%userprofile%\Cookies >>"%logs%"
 echo directory#9:%userprofile%\Recent >>"%logs%"
-echo directory#10:%userprofile%\Local Settings\Temporary Internet Files >>"%logs%"
-echo directory#11:%userprofile%\AppData\Local\Microsoft\Windows\INetCache\IE >>"%logs%"
-echo directory#12:%systemdrive%\$WINDOWS.~BT >>"%logs%"
-echo directory#13%systemdrive%\ProgramData\Microsoft\Windows\WER >>"%logs%"
+echo directory#10:%userprofile%\AppData\Local\Microsoft\Windows\INetCache\IE >>"%logs%"
+echo directory#11:%systemdrive%\$WINDOWS.~BT >>"%logs%"
+echo directory#12%systemdrive%\ProgramData\Microsoft\Windows\WER >>"%logs%"
 echo. >>"%logs%"
 echo clean up directory end >>"%logs%"
 echo. >>"%logs%"
-echo å¦‚é‡æ¸…ç†å¡ä½ï¼Œè¯·ç¨ç­‰ä¸€ä¼šâ€¦â€¦
+echo ÈçÓöÇåÀí¿¨×¡£¬ÇëÉÔµÈÒ»»á¡­¡­
 echo.
-echo åŽå°æ¸…ç†ä¸­â€¦â€¦
+echo ºóÌ¨ÇåÀíÖÐ¡­¡­
 echo.
-echo æ­£åœ¨å¯åŠ¨cleanmgrâ€¦â€¦
+echo ÕýÔÚÆô¶¯cleanmgr¡­¡­
 cleanmgr /sagerun:5 /autoclean
 echo.
-echo æ­£åœ¨è‡ªåŠ¨æ¸…ç†â€¦â€¦
+echo ÕýÔÚ×Ô¶¯ÇåÀí¡­¡­
 del %windir%\KB*.log /f /s /q >nul 2>nul
 del /f /s /q %systemdrive%\recycled\*.* >nul 2>nul
 del /f /s /q %windir%\*.bak  >nul 2>nul
@@ -309,18 +326,17 @@ del %windir%\temp\*.* /s /q /f >nul 2>nul
 del %userprofile%\Downloads\*.* /s /q /f >nul 2>nul
 del %userprofile%\Cookies\*.* /s /q /f >nul 2>nul
 del %userprofile%\Recent\*.* /s /q /f >nul 2>nul
-del "%userprofile%\Local Settings\Temporary Internet Files\*.*" /s /q /f >nul 2>nul
 del %userprofile%\AppData\Local\Microsoft\Windows\INetCache\IE\*.* /s /q /f >nul 2>nul
 del %systemdrive%\ProgramData\Microsoft\Windows\WER\*.* /s /q /f >nul 2>nul
 rd /s /q %systemdrive%\$WINDOWS.~BT >nul 2>nul
 rd /s /q %windir%\SoftwareDistribution\Download\ >nul 2>nul
 md %windir%\SoftwareDistribution\Download\ >nul 2>nul
 echo.
-echo æ¸…ç†å®Œæˆï¼
+echo ÇåÀíÍê³É£¡
 TIMEOUT /t 2
 
 rem scan
-cls&&ver&&echo %name%[ç‰ˆæœ¬ %v%]&&echo åˆ¶ä½œè€…ï¼šæž—ä¿Šè¾‰&&echo.&&echo å¼€å§‹åŽå°ä¿®å¤ç³»ç»Ÿæ–‡ä»¶ï¼
+cls&&ver&&echo %name%[°æ±¾ %v%]&&echo ÖÆ×÷Õß£ºÁÖ¿¡»Ô&&echo.&&echo ¿ªÊ¼ºóÌ¨ÐÞ¸´ÏµÍ³ÎÄ¼þ£¡
 echo @echo off >"%SFCD%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%SFCD%"
 echo title SFC.bat >>"%SFCD%"
@@ -331,35 +347,35 @@ if %mrts% == T (
 	echo mrt /q /f:y >>"%SFCD%"
 	if !errorlevel! == 1 (
 		set mrterr=T
-		echo WARNING:mrtå‘½ä»¤å†™å…¥å¤±è´¥ï¼
+		echo WARNING:mrtÃüÁîÐ´ÈëÊ§°Ü£¡
 	) 
 )
 echo exit >>"%SFCD%"
 if %sfcs% == T (
 	start /min %SFCD%
-	echo è¯·ç­‰å¾…sfc.batè‡ªåŠ¨ä¿®å¤å®Œæˆ
+	echo ÇëµÈ´ýsfc.bat×Ô¶¯ÐÞ¸´Íê³É
 	if !errorlevel! == 1 (
 		set serr=T
-		echo WARNING:%SFCD%æ‰“å¼€å¤±è´¥ï¼
+		echo WARNING:%SFCD%´ò¿ªÊ§°Ü£¡
 	)
 	echo.
 	TIMEOUT /t 5
 )
 
 rem memory
-cls&&title %name%&&ver&&echo %name%[ç‰ˆæœ¬ %v%]&&echo åˆ¶ä½œè€…ï¼šæž—ä¿Šè¾‰&&echo.
-echo å¼€å§‹æ£€æŸ¥å†…å­˜ï¼
+cls&&title %name%&&ver&&echo %name%[°æ±¾ %v%]&&echo ÖÆ×÷Õß£ºÁÖ¿¡»Ô&&echo.
+echo ¿ªÊ¼¼ì²éÄÚ´æ£¡
 wmic memorychip get capacity
 if !errorlevel! == 1 (
 	set merr=T
 ) 
-echo å†…å­˜æ£€æŸ¥å®Œæˆï¼
+echo ÄÚ´æ¼ì²éÍê³É£¡
 TIMEOUT /t 2
 
 rem runtime
 set end=%time%
-echo ECHO:ç»“æŸè®¡æ—¶ï¼
-echo ECHO:æ­£åœ¨è®¡ç®—æ—¶é—´â€¦â€¦
+echo ECHO:½áÊø¼ÆÊ±£¡
+echo ECHO:ÕýÔÚ¼ÆËãÊ±¼ä¡­¡­
 set options="tokens=1-4 delims=:.,"
 for /f %options% %%a in ("%start%") do set start_h=%%a&set /a start_m=100%%b %% 100&set /a start_s=100%%c %% 100&set /a start_ms=100%%d %% 100
 for /f %options% %%a in ("%end%") do set end_h=%%a&set /a end_m=100%%b %% 100&set /a end_s=100%%c %% 100&set /a end_ms=100%%d %% 100
@@ -374,10 +390,10 @@ if %hours% lss 0 set /a hours = 24%hours%
 if 1%ms% lss 100 set ms=0%ms%
 set /a totalsecs = %hours%*3600 + %mins%*60 + %secs%
 set runtime=%hours%:%mins%:%secs%.%ms% (%totalsecs%.%ms%s total)
-echo ECHO:è®¡ç®—å®Œæˆï¼è¿è¡Œæ—¶é—´:%runtime%ï¼
+echo ECHO:¼ÆËãÍê³É£¡ÔËÐÐÊ±¼ä:%runtime%£¡
 
 rem logs
-echo ECHO:å†™å…¥æ—¥å¿—ä¸­â€¦â€¦
+echo ECHO:Ð´ÈëÈÕÖ¾ÖÐ¡­¡­
 echo set: >>"%logs%"
 echo staut up=%su% >>"%logs%"
 echo repair mode=%sfcs% >>"%logs%"
@@ -406,38 +422,39 @@ echo. >>"%logs%"
 echo SCRT-runendtime:%date% %time% >>"%logs%"
 echo SCRT-runtime:%runtime% >>"%logs%"
 echo ---------------------------------------------------------------------------------------------------- >>"%logs%"
-echo ECHO:å†™å…¥æ—¥å¿—æˆåŠŸï¼
+echo ECHO:Ð´ÈëÈÕÖ¾³É¹¦£¡
 
 rem SCRTend
-cls&&ver&&echo %name%[ç‰ˆæœ¬ %v%]&&echo åˆ¶ä½œè€…ï¼šæž—ä¿Šè¾‰&&echo.
-echo è¿è¡Œæ—¥å¿—åœ¨%logs%ä¸­
+cls&&ver&&echo %name%[°æ±¾ %v%]&&echo ÖÆ×÷Õß£ºÁÖ¿¡»Ô&&echo.
+echo ÔËÐÐÈÕÖ¾ÔÚ%logs%ÖÐ
 echo.
-echo UACè‡ªåŠ¨æ›´æ”¹å°†ä¼šåœ¨ä¸‹ä¸€æ¬¡å¯åŠ¨æ—¶ç”Ÿæ•ˆï¼
-echo å»ºè®®ä¸è¦æŠŠè½¯ä»¶å®‰è£…åœ¨%systemdrive%\ç›˜ä¸­å“¦ï¼
-echo å¦‚è¦åŠ å¿«å¯åŠ¨é€Ÿåº¦ï¼Œè¯·å…³é—­æ— ç”¨è‡ªå¯åŠ¨é¡¹ï¼
-echo mrtæ‰«æé€Ÿåº¦è¾ƒæ…¢ï¼Œå¦‚æžœå·²ç»å¼€å¯äº†æ­¤åŠŸèƒ½ï¼Œè¯·è€å¿ƒç­‰å¾…ï¼
+echo UAC×Ô¶¯¸ü¸Ä½«»áÔÚÏÂÒ»´ÎÆô¶¯Ê±ÉúÐ§£¡
+echo ½¨Òé²»Òª°ÑÈí¼þ°²×°ÔÚ%systemdrive%\ÅÌÖÐÅ¶£¡
+echo ÈçÒª¼Ó¿ìÆô¶¯ËÙ¶È£¬Çë¹Ø±ÕÎÞÓÃ×ÔÆô¶¯Ïî£¡
+echo mrtÉ¨ÃèËÙ¶È½ÏÂý£¬Èç¹ûÒÑ¾­¿ªÆôÁË´Ë¹¦ÄÜ£¬ÇëÄÍÐÄµÈ´ý£¡
 echo.
-echo å½“å‰è¿è¡Œç›®å½•ï¼š%d%
-echo å½“å‰æ–‡ä»¶åŽç¼€åï¼š%type%
+echo µ±Ç°ÔËÐÐÄ¿Â¼£º%d%
+echo µ±Ç°ÎÄ¼þºó×ºÃû£º%type%
 echo.
-echo æœ¬æ¬¡è¿è¡Œæ—¶é—´ï¼š%runtime%
+echo ±¾´ÎÔËÐÐÊ±¼ä£º%runtime%
 echo.
-echo å·²å®Œæˆï¼
-echo 5ç§’åŽè‡ªåŠ¨é€€å‡º......
+echo ÒÑÍê³É£¡
+echo 5Ãëºó×Ô¶¯ÍË³ö......
 TIMEOUT /T 5
-echo ECHO:æ­£åœ¨é€€å‡ºï¼
+echo ECHO:ÕýÔÚÍË³ö£¡
+start /min "%tc%"
 endlocal
 exit
 
-rem æœ¬æ–‡ä»¶å—ä¸ªäººçŸ¥è¯†ç‰ˆæƒä¿æŠ¤ï¼Œä½†å·²ç»å¼€æºï¼Œè¯·è®¿é—®https://github.com/small-lin-jam/SCRT/ï¼
-rem æœ¬æ–‡ä»¶å¼€æºï¼Œä½†ä¸¥ç¦ä¿®æ”¹ã€æŠ„è¢­å…¶å†…å®¹ï¼
-rem å¤‡ç”¨ä»£ç ä¿¡æ¯begin
-rem åˆ¶ä½œè€…ï¼šæž—ä¿Šè¾‰ã€‚åˆ¶ä½œå›¢é˜Ÿï¼šSteven Lin Studioï¼ˆæž—ä¿Šè¾‰å·¥ä½œå®¤ï¼‰ã€‚ä¿ç•™æ‰€æœ‰æƒåˆ©ã€‚
-rem ç³»ç»Ÿæ¸…ç†è¯Šæ–­ç¨‹åº[ç‰ˆæœ¬ 8.3.6.5æ­£å¼ç‰ˆ]
-rem Steven Linï¼ˆæž—ä¿Šè¾‰ï¼‰ç‰ˆæƒæ‰€æœ‰
-rem æ­£ç‰ˆè¯·æœç´¢å¾®ä¿¡SHlin2012èŽ·å–æ­£ç‰ˆï¼
-rem æœ¬ç¨‹åºå—ä¸ªäººç‰ˆæƒä¿æŠ¤ï¼Œå‘çŽ°ç›—ç‰ˆï¼Œä»Žä¸¥å¤„ç†ï¼
-rem æ‹’ç»ç›—ç‰ˆï¼Œä»Žæˆ‘åšèµ·ï¼
-rem ï¼ˆtestï¼‰1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZï¼ˆï¼‰()ï¼š:*ã€‚.,!ï¼""%><ä¸­å›½æ™ºé€ ï¼Œæ…§åŠå…¨çƒï¼MADE IN CHINA BY STEVEN LIN
-rem ä¸­å›½æ™ºé€ ï¼Œæ…§åŠå…¨çƒï¼MADE IN CHINA BY STEVEN LIN
-rem å¤‡ç”¨ä»£ç ä¿¡æ¯end
+rem ±¾ÎÄ¼þÊÜ¸öÈËÖªÊ¶°æÈ¨±£»¤£¬µ«ÒÑ¾­¿ªÔ´£¬Çë·ÃÎÊhttps://github.com/small-lin-jam/SCRT/£¡
+rem ±¾ÎÄ¼þ¿ªÔ´£¬µ«ÑÏ½ûÐÞ¸Ä¡¢³­Ï®ÆäÄÚÈÝ£¡
+rem ±¸ÓÃ´úÂëÐÅÏ¢begin
+rem ÖÆ×÷Õß£ºÁÖ¿¡»Ô¡£ÖÆ×÷ÍÅ¶Ó£ºSteven Lin Studio£¨ÁÖ¿¡»Ô¹¤×÷ÊÒ£©¡£±£ÁôËùÓÐÈ¨Àû¡£
+rem ÏµÍ³ÇåÀíÕï¶Ï³ÌÐò[°æ±¾ 8.3.6.6ÕýÊ½°æ]
+rem Steven Lin£¨ÁÖ¿¡»Ô£©°æÈ¨ËùÓÐ
+rem Õý°æÇëËÑË÷Î¢ÐÅSHlin2012»ñÈ¡Õý°æ£¡
+rem ±¾³ÌÐòÊÜ¸öÈË°æÈ¨±£»¤£¬·¢ÏÖµÁ°æ£¬´ÓÑÏ´¦Àí£¡
+rem ¾Ü¾øµÁ°æ£¬´ÓÎÒ×öÆð£¡
+rem £¨test£©1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ£¨£©()£º:*¡£.,!£¡""%><ÖÐ¹úÖÇÔì£¬»Û¼°È«Çò£¡MADE IN CHINA BY STEVEN LIN
+rem ÖÐ¹úÖÇÔì£¬»Û¼°È«Çò£¡MADE IN CHINA BY STEVEN LIN
+rem ±¸ÓÃ´úÂëÐÅÏ¢end
