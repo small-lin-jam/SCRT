@@ -21,9 +21,9 @@ if not exist "%systemdrive%\SCRT" (
 )
 echo ECHO:自检完成！
 echo.
-echo 制作者：林俊辉
+echo 制作者：林先生
 echo 系统清理诊断程序[版本 8.3.6.6正式版]
-echo 制作者：林俊辉。制作团队：Steven Lin Studio（林俊辉工作室）。保留所有权利。
+echo 制作者：林先生。制作团队：Steven Lin Studio（上海林酱个人工作室）。保留所有权利。
 echo 正版请搜索微信19101717029获取正版！
 echo 本程序受个人版权保护，发现盗版，从严处理！
 echo 拒绝盗版，从我做起！
@@ -115,17 +115,17 @@ color 0A&&mode con COLS=120 LINES=50
 cls&&title 系统清理诊断程序[版本 %v%]
 echo -----------------------------------------------------------说明--------------------------------------------------------
 echo 系统清理诊断程序[版本 8.3.6.6 正式版] 
-echo 制作者：林俊辉。制作团队：Steven Lin Studio（林俊辉工作室）。保留所有权利。
-echo 本说明林俊辉（制作者）保留其所有解释权！
+echo 制作者：林先生。制作团队：Steven Lin Studio（上海林酱个人工作室）。保留所有权利。
+echo 本说明林先生（制作者）保留其所有解释权！
 echo 本说明说明了所有可能存在纠纷或刑事的任何问题！
 echo.
 echo 调用软件：cmd.exe；taskschd.msc；ping.exe；cleanmgr；SFC.exe
 echo 调用软件版权：版权所有 (C) Microsoft Corporation。保留所有权利。
 echo 网络连通性测试网址：www.baidu.com
-echo 您可以随时前往free.v6ym.com:10571(林俊辉个人网)并检查本软件更新
+echo 您可以随时前往free.v6ym.com:10571(林酱个人网)并检查本软件更新
 echo.
 echo 本软件受个人版权保护，发现盗版，从严处理！
-echo 当前软件个人版权拥有者：Steven（林俊辉）
+echo 当前软件个人版权拥有者：Steven（林先生）
 echo 本软件已开源，请前往https://github.com/small-lin-jam/SCRT/！
 echo 警告：禁止在该工具中进行植入病毒等不正当行为！一经发现，严查！！！
 echo 如发现bug或植入病毒的情况可将bug信息和SCRT.log文件一起发送至linjunhui2012@hotmail.com！
@@ -134,7 +134,7 @@ TIMEOUT /T 5
 
 rem start set
 color 0A&&mode con COLS=120 LINES=50
-cls&&title %name%&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.
+cls&&title %name%&&ver&&echo %name%[版本 %v%]&&echo 制作者：林先生&&echo.
 echo 开始运行！
 echo 温馨提示：没设置的项可以将"%systemdrive%\SCRT\main.set"删除
 echo.
@@ -256,7 +256,7 @@ echo.
 
 rem start
 color 0A&&mode con COLS=120 LINES=50
-cls&&title %name%&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.
+cls&&title %name%&&ver&&echo %name%[版本 %v%]&&echo 制作者：林先生&&echo.
 
 rem network
 echo 正在清理网络缓存……
@@ -286,7 +286,7 @@ echo 网络测试已完成！
 TIMEOUT /T 2
 
 rem clean
-cls&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.&&echo 正在清理电脑垃圾文件……
+cls&&ver&&echo %name%[版本 %v%]&&echo 制作者：林先生&&echo.&&echo 正在清理电脑垃圾文件……
 
 rem cleanlog
 echo clean up directory: >>"%logs%"
@@ -335,7 +335,7 @@ echo 清理完成！
 TIMEOUT /t 2
 
 rem scan
-cls&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.&&echo 开始后台修复系统文件！
+cls&&ver&&echo %name%[版本 %v%]&&echo 制作者：林先生&&echo.&&echo 开始后台修复系统文件！
 echo @echo off >"%SFCD%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%SFCD%"
 echo title SFC.bat >>"%SFCD%"
@@ -362,7 +362,7 @@ if %sfcs% == T (
 )
 
 rem memory
-cls&&title %name%&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.
+cls&&title %name%&&ver&&echo %name%[版本 %v%]&&echo 制作者：林先生&&echo.
 echo 开始检查内存！
 wmic memorychip get capacity
 if !errorlevel! == 1 (
@@ -424,7 +424,7 @@ echo ---------------------------------------------------------------------------
 echo ECHO:写入日志成功！
 
 rem SCRTend
-cls&&ver&&echo %name%[版本 %v%]&&echo 制作者：林俊辉&&echo.
+cls&&ver&&echo %name%[版本 %v%]&&echo 制作者：林先生&&echo.
 echo 运行日志在%logs%中
 echo.
 echo UAC自动更改将会在下一次启动时生效！
@@ -448,9 +448,9 @@ exit
 rem 本文件受个人知识版权保护，但已经开源，请访问https://github.com/small-lin-jam/SCRT/！
 rem 本文件开源，但严禁修改、抄袭其内容！
 rem 备用代码信息begin
-rem 制作者：林俊辉。制作团队：Steven Lin Studio（林俊辉工作室）。保留所有权利。
+rem 制作者：林先生。制作团队：Steven Lin Studio（上海林酱工作室）。保留所有权利。
 rem 系统清理诊断程序[版本 8.3.6.6正式版]
-rem Steven Lin（林俊辉）版权所有
+rem Steven Lin（林先生）版权所有
 rem 正版请搜索微信SHlin2012获取正版！
 rem 本程序受个人版权保护，发现盗版，从严处理！
 rem 拒绝盗版，从我做起！
