@@ -122,7 +122,7 @@ echo.
 echo 调用软件：cmd.exe；taskschd.msc；ping.exe；cleanmgr；SFC.exe
 echo 调用软件版权：版权所有 (C) Microsoft Corporation。保留所有权利。
 echo 网络连通性测试网址：www.baidu.com
-echo 您可以随时前往free.v6ym.com:10571(林酱个人网)并检查本软件更新
+echo 您可以随时前往free.v6ym.com:10571(学编程的小林)并检查本软件更新
 echo.
 echo 本软件受个人版权保护，发现盗版，从严处理！
 echo 当前软件个人版权拥有者：Steven（林先生）
@@ -302,7 +302,8 @@ echo directory#8:%userprofile%\Cookies >>"%logs%"
 echo directory#9:%userprofile%\Recent >>"%logs%"
 echo directory#10:%userprofile%\AppData\Local\Microsoft\Windows\INetCache\IE >>"%logs%"
 echo directory#11:%systemdrive%\$WINDOWS.~BT >>"%logs%"
-echo directory#12%systemdrive%\ProgramData\Microsoft\Windows\WER >>"%logs%"
+echo directory#12:%systemdrive%\ProgramData\Microsoft\Windows\WER >>"%logs%"
+echo directory#13:%userprofile%\AppData\Local\CrashDumps >>"%logs%"
 echo. >>"%logs%"
 echo clean up directory end >>"%logs%"
 echo. >>"%logs%"
@@ -315,6 +316,8 @@ cleanmgr /sagerun:5 /autoclean
 echo.
 echo 正在自动清理……
 del %windir%\KB*.log /f /s /q >nul 2>nul
+rd /s /q %temp% >nul 2>nul
+md %temp% >nul 2>nul
 del /f /s /q %systemdrive%\recycled\*.* >nul 2>nul
 del /f /s /q %windir%\*.bak  >nul 2>nul
 del "%windir%\Downloaded Program Files\*.*" /s /q /f >nul 2>nul
@@ -330,6 +333,8 @@ del %systemdrive%\ProgramData\Microsoft\Windows\WER\*.* /s /q /f >nul 2>nul
 rd /s /q %systemdrive%\$WINDOWS.~BT >nul 2>nul
 rd /s /q %windir%\SoftwareDistribution\Download\ >nul 2>nul
 md %windir%\SoftwareDistribution\Download\ >nul 2>nul
+rd /s /q %userprofile%\AppData\Local\CrashDumps >nul 2>nul
+md %userprofile%\AppData\Local\CrashDumps >nul 2>nul
 echo.
 echo 清理完成！
 TIMEOUT /t 2
