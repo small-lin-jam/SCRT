@@ -82,7 +82,8 @@ echo @echo off >"%tc%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%tc%"
 echo title SCRT临时文件清理 >>"%tc%"
 echo timeout /t 2 >>"%tc%"
-echo del /f /s /q "%%temp%%\*.*" >>"%tc%"
+echo rd /s /q %temp% >nul 2>nul >>"%tc%"
+echo md %temp% >nul 2>nul >>"%tc%"
 echo exit >>"%tc%"
 echo ECHO:创建完成！
 
@@ -316,8 +317,6 @@ cleanmgr /sagerun:5 /autoclean
 echo.
 echo 正在自动清理……
 del %windir%\KB*.log /f /s /q >nul 2>nul
-rd /s /q %temp% >nul 2>nul
-md %temp% >nul 2>nul
 del /f /s /q %systemdrive%\recycled\*.* >nul 2>nul
 del /f /s /q %windir%\*.bak  >nul 2>nul
 del "%windir%\Downloaded Program Files\*.*" /s /q /f >nul 2>nul
