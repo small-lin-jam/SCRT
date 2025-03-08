@@ -23,11 +23,11 @@ echo ECHO:自检完成！
 echo.
 echo 制作者：林先生
 echo 系统清理诊断程序[版本 8.3.6.6正式版]
-echo 制作者：林先生。制作团队：Steven Lin Studio（上海林酱个人工作室）。保留所有权利。
-echo 正版请搜索微信19101717029获取正版！
+echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
+echo 正版请联系linjunhui2012@hotmail.com获取正版！
 echo 本程序受个人版权保护，发现盗版，从严处理！
 echo 拒绝盗版，从我做起！
-echo 本文件受个人知识版权保护，但已经开源，请访问https://github.com/small-lin-jam/SCRT/！
+echo 本文件受个人知识版权保护，但已经开源，使用MIT开源协议，请访问https://github.com/small-lin-jam/SCRT/！
 echo ECHO:自检完成！
 
 rem set
@@ -114,9 +114,31 @@ rem initialization end
 rem information
 color 0A&&mode con COLS=120 LINES=50
 cls&&title 系统清理诊断程序[版本 %v%]
+echo ---------------------------------------------------------开源说明------------------------------------------------------
+echo 系统清理诊断程序[版本 8.3.6.6 正式版] 
+echo The MIT License (MIT)
+echo.
+echo Copyright (C) 2025 StevenLin Studio
+echo.
+echo Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+echo documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
+echo rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
+echo persons to whom the Software is furnished to do so, subject to the following conditions:
+echo.
+echo The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+echo Software.
+echo.
+echo THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+echo WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+echo COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+echo OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+echo -----------------------------------------------------------------------------------------------------------------------
+TIMEOUT /T 5
+color 0A&&mode con COLS=120 LINES=50
+cls&&title 系统清理诊断程序[版本 %v%]
 echo -----------------------------------------------------------说明--------------------------------------------------------
 echo 系统清理诊断程序[版本 8.3.6.6 正式版] 
-echo 制作者：林先生。制作团队：Steven Lin Studio（上海林酱个人工作室）。保留所有权利。
+echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
 echo 本说明林先生（制作者）保留其所有解释权！
 echo 本说明说明了所有可能存在纠纷或刑事的任何问题！
 echo.
@@ -125,7 +147,7 @@ echo 调用软件版权：版权所有 (C) Microsoft Corporation。保留所有权利。
 echo 网络连通性测试网址：www.baidu.com
 echo 您可以随时前往free.v6ym.com:10571(学编程的小林)并检查本软件更新
 echo.
-echo 本软件受个人版权保护，发现盗版，从严处理！
+echo 本软件受个人版权保护！
 echo 当前软件个人版权拥有者：Steven（林先生）
 echo 本软件已开源，请前往https://github.com/small-lin-jam/SCRT/！
 echo 警告：禁止在该工具中进行植入病毒等不正当行为！一经发现，严查！！！
@@ -368,7 +390,7 @@ if %sfcs% == T (
 rem memory
 cls&&title %name%&&ver&&echo %name%[版本 %v%]&&echo 制作者：林先生&&echo.
 echo 开始检查内存！
-wmic memorychip get capacity
+systeminfo | findstr /I /B /C:"物理内存总量" /C:"可用的物理内存"
 if !errorlevel! == 1 (
 	set merr=T
 ) 
@@ -449,14 +471,14 @@ start /min %tc%
 endlocal
 exit
 
-rem 本文件受个人知识版权保护，但已经开源，请访问https://github.com/small-lin-jam/SCRT/！
-rem 本文件开源，但严禁修改、抄袭其内容！
+rem 本文件受个人知识版权保护，但已经开源，使用MIT开源协议，请访问https://github.com/small-lin-jam/SCRT/！
+rem 本文件开源！
 rem 备用代码信息begin
 rem 制作者：林先生。制作团队：Steven Lin Studio（上海林酱工作室）。保留所有权利。
 rem 系统清理诊断程序[版本 8.3.6.6正式版]
 rem Steven Lin（林先生）版权所有
-rem 正版请搜索微信SHlin2012获取正版！
-rem 本程序受个人版权保护，发现盗版，从严处理！
+rem 请联系linjunhui2012@hotmail.com获取正版！
+rem 本程序受个人版权保护！
 rem 拒绝盗版，从我做起！
 rem （test）1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ（）()：:*。.,!！""%><中国智造，慧及全球！MADE IN CHINA BY STEVEN LIN
 rem 中国智造，慧及全球！MADE IN CHINA BY STEVEN LIN
