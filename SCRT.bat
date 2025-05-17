@@ -20,16 +20,15 @@ if not exist "%systemdrive%\SCRT" (
 echo ECHO:自检完成！
 echo.
 echo 制作者：林先生
-echo 系统清理诊断程序[版本 8.3.7.5正式版]
+echo 系统清理诊断程序[版本 8.3.7.6正式版]
 echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
-echo 原版请联系linjunhui2012@hotmail.com获取！
-echo 本文件受个人知识版权保护，但已经开源，使用MIT开源协议，请访问https://github.com/small-lin-jam/SCRT/！
+echo 本文件已开源，使用MIT开源协议，请访问https://github.com/small-lin-jam/SCRT/！
 echo ECHO:自检完成！
 echo ECHO:初始化中……
 echo ECHO:设置中……
 echo ECHO:正在设置基础变量……
 set d=%~s0
-set v=8.3.7.5 正式版
+set v=8.3.7.6 正式版
 set name=系统清理诊断程序
 set fname=%~n0%
 set type=%~x0
@@ -102,7 +101,7 @@ echo.
 color 0A&&mode con COLS=120 LINES=50
 cls&&title 系统清理诊断程序[版本 %v%]
 echo ---------------------------------------------------------开源说明------------------------------------------------------
-echo 系统清理诊断程序[版本 8.3.7.5 正式版] 
+echo 系统清理诊断程序[版本 8.3.7.6 正式版] 
 echo The MIT License (MIT)
 echo.
 echo Copyright (C) 2025 StevenLin Studio
@@ -124,7 +123,7 @@ TIMEOUT /T 5
 color 0A&&mode con COLS=120 LINES=50
 cls&&title 系统清理诊断程序[版本 %v%]
 echo -----------------------------------------------------------说明--------------------------------------------------------
-echo 系统清理诊断程序[版本 8.3.7.5 正式版] 
+echo 系统清理诊断程序[版本 8.3.7.6 正式版] 
 echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
 echo 本说明林先生（制作者）保留其所有解释权！
 echo 本说明说明了所有可能存在纠纷或刑事的任何问题！
@@ -136,8 +135,6 @@ echo 调用软件版权：版权所有 (C) Microsoft Corporation。保留所有权利。
 echo 网络连通性测试网址：www.baidu.com
 echo 您可以随时前往free.v6ym.com:10571(学编程的小林)并检查本软件更新
 echo.
-echo 本软件受个人版权保护！
-echo 当前软件个人版权拥有者：Steven（林先生）
 echo 本软件已开源，请前往https://github.com/small-lin-jam/SCRT/！
 echo 警告：禁止在该工具中进行植入病毒等不正当行为！一经发现，严查！！！
 echo 如发现bug或植入病毒的情况可将bug信息和SCRT.log文件一起发送至linjunhui2012@hotmail.com！
@@ -321,14 +318,16 @@ echo 正在启动cleanmgr……
 start /min cleanmgr /sagerun:5 /autoclean
 echo.
 echo 正在自动清理……
-echo powershell -Command "Get-ChildItem 'C:\' -Include '*.old','*.tmp','*.temp' -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.PSIsContainer -eq $false} | Remove-Item -Force -ErrorAction SilentlyContinue"^&^exit >%cleanbat%
+echo @echo off >%cleanbat%
+echo color 0A^&^mode con COLS=120 LINES=50 >>%cleanbat%
+echo powershell -Command "Get-ChildItem 'C:\' -Include '*.old','*.tmp','*.temp' -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.PSIsContainer -eq $false} | Remove-Item -Force"^&^exit >>%cleanbat%
 start /min %cleanbat%
 start  /min cmd /q /d /c "del %windir%\KB*.log /f /s /q"
 start  /min cmd /q /d /c "del /f /s /q %windir%\*.bak"
 del "%windir%\Downloaded Program Files\*.*" /s /q /f >nul 2>nul
 del "%windir%\System32\LogFiles\*.*" /s /q /f >nul 2>nul
 del "%windir%\Help\*.*" /s /q /f >nul 2>nul
-del %windir%\temp\*.* /s /q /f >nul 2>nul
+start  /min cmd /q /d /c  "del %windir%\temp\*.* /s /q /f"
 del %userprofile%\Cookies\*.* /s /q /f >nul 2>nul
 del %userprofile%\Recent\*.* /s /q /f >nul 2>nul
 del %userprofile%\AppData\Local\Microsoft\Windows\INetCache\IE\*.* /s /q /f >nul 2>nul
@@ -348,7 +347,6 @@ echo @echo off >"%SFCD%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%SFCD%"
 echo title SFC.bat >>"%SFCD%"
 echo SFC /scannow >>"%SFCD%"
-echo dism /online /cleanup-image /scanhealth >>"%SFCD%"
 echo dism /online /cleanup-image /restorehealth >>"%SFCD%"
 if %mrts% == T (
 	echo mrt /q /f:y >>"%SFCD%"
@@ -436,13 +434,12 @@ echo ECHO:正在退出！
 start /min %tc%
 endlocal
 exit
-rem 本文件受个人知识版权保护，但已经开源，使用MIT开源协议，请访问https://github.com/small-lin-jam/SCRT/！
+rem 本文件已经开源，使用MIT开源协议，请访问https://github.com/small-lin-jam/SCRT/！
 rem 本文件开源！
 rem 备用代码信息begin
 rem 制作者：林先生。制作团队：Steven Lin Studio（上海林酱工作室）。保留所有权利。
-rem 系统清理诊断程序[版本 8.3.7.5正式版]
+rem 系统清理诊断程序[版本 8.3.7.6正式版]
 rem Steven Lin（林先生）版权所有
-rem 请联系linjunhui2012@hotmail.com获取正版！
 rem 本程序受个人版权保护！
 rem 拒绝盗版，从我做起！
 rem （test）1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ（）()：:*。.,!！""%><中国智造，慧及全球！MADE IN CHINA BY STEVEN LIN
