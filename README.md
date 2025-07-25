@@ -15,4 +15,4 @@
 ### 📋我的统计表
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=small-lin-jam&show_icons=true&theme=gruvbox&locale=cn)](https://github.com/anuraghazra/github-readme-stats)
 
-# 感谢大家对本项目的支持！如要关注我们，请转到![上海木木个人工作室](https://github.com/StevenLinStudio)并点击Follow按钮！
+# 🙏感谢大家对本项目的支持！如要关注我们，请转到![上海木木个人工作室](https://github.com/StevenLinStudio)并点击Follow按钮！
