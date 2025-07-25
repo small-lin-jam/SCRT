@@ -3,6 +3,9 @@
 # 📦SCRT(系统清理和诊断工具)
 ## 🚀一款自制的实用批处理程序（单文件）
 
+![GitHub Stars](https://img.shields.io/github/stars/small-lin-jam/SCRT?style=for-the-badge)  
+![License](https://img.shields.io/github/license/small-lin-jam/SCRT?style=for-the-badge)
+
 <hr>
 
 ### 🌟软件简介
