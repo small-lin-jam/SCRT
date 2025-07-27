@@ -22,7 +22,7 @@ echo.
 echo 制作者：林先生
 echo 系统清理诊断程序[版本 8.3.7.6正式版]
 echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
-echo 本文件已开源，使用MIT开源协议，请访问https://github.com/small-lin-jam/SCRT/！
+echo 本文件已开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-lin-jam/SCRT/！
 echo ECHO:自检完成！
 echo ECHO:初始化中……
 echo ECHO:设置中……
@@ -102,22 +102,14 @@ color 0A&&mode con COLS=120 LINES=50
 cls&&title 系统清理诊断程序[版本 %v%]
 echo ---------------------------------------------------------开源说明------------------------------------------------------
 echo 系统清理诊断程序[版本 8.3.7.6 正式版] 
-echo The MIT License (MIT)
 echo.
-echo Copyright (C) 2025 StevenLin Studio
+echo 本程序使用GNU通用开源许可证第三版
+echo 如有违反，则视为侵权＋违约！
 echo.
-echo Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
-echo documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
-echo rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
-echo persons to whom the Software is furnished to do so, subject to the following conditions:
-echo.
-echo The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
-echo Software.
-echo.
-echo THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
-echo WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-echo COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-echo OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+echo GNU通用开源许可证第三版允许他人只有使用、复制、修改和分发本软件，但需要用于任何合法目的，
+echo 修改后的新程序必须使用必须含有GNU通用许可证并提供源代码，告知获取源代码的方式，
+echo 不得限制他人对软件的使用、复制、修改和分发，严禁通过任意方式增加对用户的额外限制和在
+echo 本开源许可证下的任何权利不得被他人剥夺
 echo -----------------------------------------------------------------------------------------------------------------------
 TIMEOUT /T 5
 color 0A&&mode con COLS=120 LINES=50
@@ -133,7 +125,6 @@ echo.
 echo 调用软件：cmd.exe；taskschd.msc；ping.exe；cleanmgr；SFC.exe
 echo 调用软件版权：版权所有 (C) Microsoft Corporation。保留所有权利。
 echo 网络连通性测试网址：www.baidu.com
-echo 您可以随时前往free.v6ym.com:10571(学编程的小林)并检查本软件更新
 echo.
 echo 本软件已开源，请前往https://github.com/small-lin-jam/SCRT/！
 echo 警告：禁止在该工具中进行植入病毒等不正当行为！一经发现，严查！！！
@@ -434,7 +425,7 @@ echo ECHO:正在退出！
 start /min %tc%
 endlocal
 exit
-rem 本文件已经开源，使用MIT开源协议，请访问https://github.com/small-lin-jam/SCRT/！
+rem 本文件已经开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-lin-jam/SCRT/！
 rem 本文件开源！
 rem 备用代码信息begin
 rem 制作者：林先生。制作团队：Steven Lin Studio（上海林酱工作室）。保留所有权利。
