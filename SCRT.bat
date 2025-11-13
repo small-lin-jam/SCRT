@@ -9,6 +9,7 @@ echo ECHO:正在检查程序运行目录……
 if not exist "%systemdrive%\SCRT" (
 	echo ECHO:未找到程序运行目录！正在创建！
 	md "%systemdrive%\SCRT"
+	md "%systemdrive%\SCRT\logs"
 	if !errorlevel! == 1 (
 		echo WARNING:无法创建运行目录！
 	) else (
@@ -20,7 +21,7 @@ if not exist "%systemdrive%\SCRT" (
 echo ECHO:自检完成！
 echo.
 echo 制作者：林先生
-echo 系统清理诊断程序[版本 8.3.7.6正式版]
+echo 系统清理诊断程序[版本 8.5.0.0正式版]
 echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
 echo 本文件已开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-lin-jam/SCRT/！
 echo ECHO:自检完成！
@@ -28,20 +29,25 @@ echo ECHO:初始化中……
 echo ECHO:设置中……
 echo ECHO:正在设置基础变量……
 set d=%~s0
-set v=8.3.7.6 正式版
+set v=8.5.0.0 正式版
 set name=系统清理诊断程序
 set fname=%~n0%
 set type=%~x0
+set date_f=%date:/=%_%time::=%
+set date_f=%date_f:.=%
 set SCRT="%cd%\%fname%%type%"
+set logf=%systemdrive%\SCRT\logs\
+set subat=%systemdrive%\SCRT\startup.bat
 set SFCD=%systemdrive%\SCRT\SFC.bat
 set cleanbat=%systemdrive%\SCRT\cb.bat
-set logs=%systemdrive%\SCRT\SCRT.log
+set logs=%logf%%date_f%.log
 set set=%systemdrive%\SCRT\main.set
 set uns=%systemdrive%\SCRT\uns.bat
 set tc=%systemdrive%\SCRT\tempclean.bat
 set cls=cls^&^title %name%^&^ver^&^echo %name%[版本 %v%]^&^echo 制作者：林先生^&^echo.
 echo ECHO:基础变量设置完成！
 echo ECHO:正在设置错误报告变量……
+set auto=F
 set su=F
 set sfcs=F
 set mrts=F
@@ -52,13 +58,18 @@ set cerr=F
 set serr=F
 set mrterr=F
 echo ECHO:设置错误报告变量完成！
+echo ECHO:设置自动模式中……
+if exist "%set%" (
+	type "%set%" | findstr /c:"automode:T" >nul && set auto=T || set auto=F
+)
+echo ECHO:设置自动模式完成！
 echo ECHO:设置完成！
 echo ECHO:创建卸载程序中……
 echo @echo off >"%uns%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%uns%"
 echo title SCRT安全重置程序 >>"%uns%"
 echo echo SCRT安全重置程序[版本 2.0] >>"%uns%"
-echo echo 欢迎使用SCRT安全卸载程序！ >>"%uns%"
+echo echo 欢迎使用SCRT安全重置程序！ >>"%uns%"
 echo echo 继续重置请按任意键（退出请关闭当前窗口） >>"%uns%"
 echo pause >>"%uns%"
 echo schtasks /delete /tn "SCRT" /f >>"%uns%"
@@ -78,6 +89,27 @@ echo rd /s /q %temp% >nul 2>nul >>"%tc%"
 echo md %temp% >nul 2>nul >>"%tc%"
 echo exit >>"%tc%"
 echo ECHO:创建完成！
+echo.
+echo ECHO:正在对日志文件进行检查
+for /f "delims=" %%c in ('dir /b %logf% ^| find /c /v ""') do set count=%%c
+echo ECHO:日志文件数量%count%个
+if %count% geq 10 (
+    set /a del_count=%count% - 9
+    echo ECHO:需删除的日志文件数量!del_count!个
+    for /l %%i in (1, 1, !del_count!) do (
+        for /f "delims=" %%f in ('dir /b /od %logf%') do (
+            set "oldest_file=%%f"
+            goto :delete_file
+        )
+        :delete_file
+        del "%logf%!oldest_file!"
+        echo 删除文件 "%logf%!oldest_file!"
+        )
+    )
+) else (
+    echo 无需删除多余日志文件
+)
+echo ECHO:已自动保留最新的九个日志文件
 echo ---------------------------------------------------------------------------------------------------- >"%logs%"
 echo SCRT-runbegintime:%date% %time% >>"%logs%"
 echo SCRT-vision:%v% >>"%logs%"
@@ -98,24 +130,23 @@ set start=%time%
 color 0A&&mode con COLS=120 LINES=50
 cls&&title %name%
 echo.
-color 0A&&mode con COLS=120 LINES=50
 cls&&title 系统清理诊断程序[版本 %v%]
 echo ---------------------------------------------------------开源说明------------------------------------------------------
-echo 系统清理诊断程序[版本 8.3.7.6 正式版] 
+echo 系统清理诊断程序[版本 8.5.0.0 正式版] 
 echo.
 echo 本程序使用GNU通用开源许可证第三版
-echo 如有违反，则视为侵权＋违约！
 echo.
 echo GNU通用开源许可证第三版允许他人只有使用、复制、修改和分发本软件，但需要用于任何合法目的，
 echo 修改后的新程序必须使用必须含有GNU通用许可证并提供源代码，告知获取源代码的方式，
 echo 不得限制他人对软件的使用、复制、修改和分发，严禁通过任意方式增加对用户的额外限制和在
 echo 本开源许可证下的任何权利不得被他人剥夺
 echo -----------------------------------------------------------------------------------------------------------------------
-TIMEOUT /T 5
-color 0A&&mode con COLS=120 LINES=50
+if %auto% == "F" (
+	TIMEOUT /T 5
+)
 cls&&title 系统清理诊断程序[版本 %v%]
 echo -----------------------------------------------------------说明--------------------------------------------------------
-echo 系统清理诊断程序[版本 8.3.7.6 正式版] 
+echo 系统清理诊断程序[版本 8.5.0.0 正式版] 
 echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
 echo 本说明林先生（制作者）保留其所有解释权！
 echo 本说明说明了所有可能存在纠纷或刑事的任何问题！
@@ -128,20 +159,39 @@ echo 网络连通性测试网址：www.baidu.com
 echo.
 echo 本软件已开源，请前往https://github.com/small-lin-jam/SCRT/！
 echo 警告：禁止在该工具中进行植入病毒等不正当行为！一经发现，严查！！！
-echo 如发现bug或植入病毒的情况可将bug信息和SCRT.log文件一起发送至linjunhui2012@hotmail.com！
+echo 如发现bug或植入病毒的情况可将bug信息和logs文件夹下的脚本一起发送至微信SHlin2012！
 echo -----------------------------------------------------------------------------------------------------------------------
-TIMEOUT /T 5
+if %auto% == "F" (
+	TIMEOUT /T 5
+)
 echo. >>"%logs%"
 echo set: >>"%logs%"
 color 0A&&mode con COLS=120 LINES=50
 %cls%
 echo 开始运行！
-echo 温馨提示：没设置的项可以将"%systemdrive%\SCRT\main.set"删除
-echo.
 echo 提示：如需修改任何设置项请前往"%systemdrive%\SCRT\uns.bat"进行重置操作
+echo.
 if not exist "%set%" (
 	echo SCRT-main.set: >"%set%"
-		set /p ip=您想要设置清理目录吗（sage = 5）？（y/n）:
+	echo 静默运行说明：当开启静默模式后，所有延时代码将不会运行，并禁用本程序的ping测试
+	echo                           适用于需要自启动或仅需要功能不需要UI的人
+	set /p ip=您想让SCRT静默运行吗？（y/n）:
+	if "!ip!"=="y" (
+		set auto=T
+		echo 设置成功！
+		echo automode:T >> "%set%"
+		echo [%date% %time%]auto mode:T >>"%logs%"
+	) else if "!ip!"=="n" (
+		echo 跳过设置过程成功！
+		echo automode:F >> "%set%"
+		echo [%date% %time%]auto mode:F >>"%logs%"
+	 ) else (
+		echo 无效输入，请输入y或 n。
+		echo [%date% %time%]auto mode:ERROR >>"%logs%"
+	)
+	echo [%date% %time%]auto mode set >>"%logs%"
+	echo.
+	set /p ip=您想要设置清理目录吗（sage = 5）？（y/n）:
 	if "!ip!"=="y" (
 		echo 请您在弹出的新窗口中选中要清理的所有文件！
 		cleanmgr /sageset:5
@@ -165,7 +215,13 @@ if not exist "%set%" (
 	if "!ip!"=="y" (
 		reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableLUA /t REG_DWORD /d "0" /f
 		echo ECHO:正在启用自启动……
-		Schtasks /Create /SC ONLOGON /TN "SCRT" /TR "%SCRT%" /F
+		if %auto% == "F" (
+			Schtasks /Create /SC ONLOGON /TN "SCRT" /TR "%SCRT%" /F
+		) else (
+			echo start %SCRT% /min >"%subat%"
+			echo exit >>"%subat%"
+			Schtasks /Create /SC ONLOGON /TN "SCRT" /TR "%subat%" /F
+		)
 		echo ECHO:启用自启动完成！
 		if !errorlevel! == 1 (
 			set UACerr=T
@@ -235,6 +291,8 @@ if not exist "%set%" (
 	echo [%date% %time%]sfc^&mrt set >>"%logs%"
 	TIMEOUT /T 3
 ) else (
+	echo 自动模式已设置
+	echo.
 	echo cleanmgr已设置
 	echo.
 	type "%set%" | findstr /c:"startup:T" >nul && set su=T || set su=F
@@ -256,21 +314,30 @@ echo. >>"%logs%"
 echo ---------------------------------------------------------------------------------------------------- >>"%logs%"
 echo network-ping: >>"%logs%"
 echo. >>"%logs%"
-echo ping#1:www.baidu.com >>"%logs%"
-echo 正在清理网络缓存……
-del "%userprofile%\Local Settings\Temporary Internet Files\*.*" /s /q /f >nul 2>nul
-echo [%date% %time%]Temporary Internet Files cleaned >>"%logs%"
-echo 清理完成！
-echo.
-echo 正在刷新DNS缓存……
-ipconfig /flushdns
-echo [%date% %time%]Temporary DNS cleaned >>"%logs%"
-echo 刷新缓存完成！
-echo.
-echo 正在测试网络连通性（www.baidu.com）……
-ping www.baidu.com
-echo [%date% %time%]ping www.baidu.com completed >>"%logs%"
-echo 网络连通性已测试完成！
+if %auto% == "F" (
+	echo ping#1:www.baidu.com >>"%logs%"
+	echo 正在清理网络缓存……
+	del "%userprofile%\Local Settings\Temporary Internet Files\*.*" /s /q /f >nul 2>nul
+	echo [%date% %time%]Temporary Internet Files cleaned >>"%logs%"
+	echo 清理完成！
+	echo.
+	echo 正在刷新DNS缓存……
+	ipconfig /flushdns
+	echo [%date% %time%]Temporary DNS cleaned >>"%logs%"
+	echo 刷新缓存完成！
+	echo.
+	echo 正在测试网络连通性（www.baidu.com）……
+	ping www.baidu.com
+	echo [%date% %time%]ping www.baidu.com completed >>"%logs%"
+	echo 网络连通性已测试完成！
+	echo 网络测试已完成！
+	TIMEOUT /T 2
+) else (
+	del "%userprofile%\Local Settings\Temporary Internet Files\*.*" /s /q /f >nul 2>nul
+	echo [%date% %time%]Temporary Internet Files cleaned >>"%logs%"
+	ipconfig /flushdns
+	echo [%date% %time%]Temporary DNS cleaned >>"%logs%"
+)
 if !errorlevel! == 1 (
 	set nperr=T
 	echo [%date% %time%]ping error >>"%logs%"
@@ -278,8 +345,6 @@ if !errorlevel! == 1 (
 echo. >>"%logs%"
 echo network-ping end >>"%logs%"
 echo. >>"%logs%"
-echo 网络测试已完成！
-TIMEOUT /T 2
 %cls%&&echo 正在清理电脑垃圾文件……
 echo clean up directory: >>"%logs%"
 echo. >>"%logs%"
@@ -332,7 +397,9 @@ echo. >>"%logs%"
 echo [%date% %time%]files cleaned >>"%logs%"
 echo.
 echo 清理完成！
-TIMEOUT /t 2
+if %auto% == "F" (
+	TIMEOUT /t 2
+)
 %cls%&&echo 开始后台修复系统文件！
 echo @echo off >"%SFCD%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%SFCD%"
@@ -358,7 +425,9 @@ if %sfcs% == T (
 		echo [%date% %time%]sfc error >>"%logs%"
 	)
 	echo.
-	TIMEOUT /t 5
+	if %auto% == "F" (
+		TIMEOUT /t 5
+	)
 )
 set end=%time%
 echo ECHO:结束计时！
@@ -380,6 +449,7 @@ set runtime=%hours%:%mins%:%secs%.%ms% (%totalsecs%.%ms%s total)
 echo ECHO:计算完成！运行时间:%runtime%！
 echo ECHO:写入日志中……
 echo set: >>"%logs%"
+echo auto mode=%auto% >>"%logs%"
 echo staut up=%su% >>"%logs%"
 echo repair mode=%sfcs% >>"%logs%"
 echo mrt=%mrts% >>"%logs%"
@@ -419,20 +489,19 @@ echo.
 echo 本次运行时间：%runtime%
 echo.
 echo 已完成！
-echo 5秒后自动退出......
-TIMEOUT /T 5
-echo ECHO:正在退出！
+if %auto% == "F" (
+	echo 5秒后自动退出......
+	TIMEOUT /T 5
+)
+echo ECHO:正在退出……
 start /min %tc%
 endlocal
 exit
 rem 本文件已经开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-lin-jam/SCRT/！
 rem 本文件开源！
 rem 备用代码信息begin
-rem 制作者：林先生。制作团队：Steven Lin Studio（上海林酱工作室）。保留所有权利。
-rem 系统清理诊断程序[版本 8.3.7.6正式版]
+rem 制作者：林先生。制作团队：Steven Lin Studio（上海木木工作室）。保留所有权利。
+rem 系统清理诊断程序[版本 8.5.0.0正式版]
 rem Steven Lin（林先生）版权所有
 rem 本程序受个人版权保护！
-rem 拒绝盗版，从我做起！
-rem （test）1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ（）()：:*。.,!！""%><中国智造，慧及全球！MADE IN CHINA BY STEVEN LIN
-rem 中国智造，慧及全球！MADE IN CHINA BY STEVEN LIN
 rem 备用代码信息end
