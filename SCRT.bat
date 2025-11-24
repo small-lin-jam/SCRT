@@ -3,51 +3,103 @@ setlocal
 color 0A&&mode con COLS=120 LINES=50
 setlocal enabledelayedexpansion
 chcp 936
+echo 制作者：林先生
+echo 系统清理诊断程序[版本 8.5.2.0 正式版]
+echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
+echo 本文件已开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-lin-jam/SCRT/！
+echo ECHO:初始化中……
+echo ECHO:设置中……
+echo ECHO:正在设置基础变量……
+set d=%~s0
+set v=8.5.2.0 正式版
+set name=系统清理诊断程序
+set fname=%~n0%
+set type=%~x0
+set date_f=%date:/=%_%time::=%
+set date_f=%date_f:.=%
+set SCRT="%cd%%fname%%type%"
+for /f "tokens=2* delims=    " %%a in ('reg query "HKLM\SOFTWARE\SCRT" /v "home" 2^>nul') do (
+	set home=%%b
+)
+if defined home (
+	echo ECHO:已找到SCRT\home注册表项，正在检查有效性！
+	if exist "%home%" (
+		pushd "%home%" 2>nul
+    		if %errorLevel% equ 0 (
+        		popd
+			echo ECHO:注册表信息有效，正在设置变量
+			set logf=%home%logs\
+			set subat=%home%startup.bat
+			set SFCD=%home%SFC.bat
+			set cleanbat=%home%cb.bat
+			set set=%home%main.set
+			set uns=%home%uns.bat
+			set tc=%home%tempclean.bat
+		) else (
+			echo WARNING"%home%" 存在但可能不是一个有效的目录或无法访问
+			set logf=%systemdrive%\SCRT\logs\
+			set subat=%systemdrive%\SCRT\startup.bat
+			set SFCD=%systemdrive%\SCRT\SFC.bat
+			set cleanbat=%systemdrive%\SCRT\cb.bat
+			set set=%systemdrive%\SCRT\main.set
+			set uns=%systemdrive%\SCRT\uns.bat
+			set tc=%systemdrive%\SCRT\tempclean.bat
+			set home=%systemdrive%\SCRT\
+		)
+	) else (
+        	echo WARNING:%home%不存在！
+		set logf=%systemdrive%\SCRT\logs\
+		set subat=%systemdrive%\SCRT\startup.bat
+		set SFCD=%systemdrive%\SCRT\SFC.bat
+		set cleanbat=%systemdrive%\SCRT\cb.bat
+		set set=%systemdrive%\SCRT\main.set
+		set uns=%systemdrive%\SCRT\uns.bat
+		set tc=%systemdrive%\SCRT\tempclean.bat
+		set home=%systemdrive%\SCRT\
+	)
+) else (
+	echo WARNING:注册表项未找到！
+	set logf=%systemdrive%\SCRT\logs\
+	set subat=%systemdrive%\SCRT\startup.bat
+	set SFCD=%systemdrive%\SCRT\SFC.bat
+	set cleanbat=%systemdrive%\SCRT\cb.bat
+	set set=%systemdrive%\SCRT\main.set
+	set uns=%systemdrive%\SCRT\uns.bat
+	set tc=%systemdrive%\SCRT\tempclean.bat
+	set home=%systemdrive%\SCRT\
+)
+set logs=%logf%%date_f%.log
+set cls=cls^&^title %name%^&^ver^&^echo %name%[版本 %v%]^&^echo 制作者：林先生^&^echo.
+echo ECHO:基础变量设置完成！
+echo.
 echo ECHO:自检中……
 echo
 echo ECHO:正在检查程序运行目录……
-if not exist "%systemdrive%\SCRT" (
-	echo ECHO:未找到程序运行目录！正在创建！
-	md "%systemdrive%\SCRT"
-	md "%systemdrive%\SCRT\logs"
-	if !errorlevel! == 1 (
-		echo WARNING:无法创建运行目录！
+if not exist "%home%" (
+	pushd "%home%" 2>nul
+    	if !errorLevel! neq 0 (
+        	popd
+		echo ECHO:未找到程序运行目录！正在创建！
+		md "%home%"
+		md "%home%logs"
+		if !errorlevel! == 1 (
+			echo ERROR:无法创建运行目录！
+		) else (
+			echo ECHO:创建成功！
+		)
 	) else (
-		echo ECHO:创建成功！
+		echo ECHO:已找到程序运行目录！无需进行任何操作！
 	)
 ) else (
 	echo ECHO:已找到程序运行目录！无需进行任何操作！
 )
 echo ECHO:自检完成！
 echo.
-echo 制作者：林先生
-echo 系统清理诊断程序[版本 8.5.0.0正式版]
-echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
-echo 本文件已开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-lin-jam/SCRT/！
-echo ECHO:自检完成！
-echo ECHO:初始化中……
-echo ECHO:设置中……
-echo ECHO:正在设置基础变量……
-set d=%~s0
-set v=8.5.0.0 正式版
-set name=系统清理诊断程序
-set fname=%~n0%
-set type=%~x0
-set date_f=%date:/=%_%time::=%
-set date_f=%date_f:.=%
-set SCRT="%cd%\%fname%%type%"
-set logf=%systemdrive%\SCRT\logs\
-set subat=%systemdrive%\SCRT\startup.bat
-set SFCD=%systemdrive%\SCRT\SFC.bat
-set cleanbat=%systemdrive%\SCRT\cb.bat
-set logs=%logf%%date_f%.log
-set set=%systemdrive%\SCRT\main.set
-set uns=%systemdrive%\SCRT\uns.bat
-set tc=%systemdrive%\SCRT\tempclean.bat
-set cls=cls^&^title %name%^&^ver^&^echo %name%[版本 %v%]^&^echo 制作者：林先生^&^echo.
-echo ECHO:基础变量设置完成！
 echo ECHO:正在设置错误报告变量……
 set auto=F
+if exist "%set%" (
+	type "%set%" | findstr /c:"automode:T" >nul && set auto=T || set auto=F
+)
 set su=F
 set sfcs=F
 set mrts=F
@@ -59,23 +111,21 @@ set serr=F
 set mrterr=F
 echo ECHO:设置错误报告变量完成！
 echo ECHO:设置自动模式中……
-if exist "%set%" (
-	type "%set%" | findstr /c:"automode:T" >nul && set auto=T || set auto=F
-)
 echo ECHO:设置自动模式完成！
 echo ECHO:设置完成！
 echo ECHO:创建卸载程序中……
 echo @echo off >"%uns%"
 echo color 0A^&^mode con COLS=120 LINES=50 >>"%uns%"
 echo title SCRT安全重置程序 >>"%uns%"
-echo echo SCRT安全重置程序[版本 2.0] >>"%uns%"
+echo echo SCRT安全重置程序[版本 3.0] >>"%uns%"
 echo echo 欢迎使用SCRT安全重置程序！ >>"%uns%"
 echo echo 继续重置请按任意键（退出请关闭当前窗口） >>"%uns%"
 echo pause >>"%uns%"
 echo schtasks /delete /tn "SCRT" /f >>"%uns%"
 echo echo @echo off ^>"%%temp%%\unstc.bat" >>"%uns%"
 echo echo cd %systemdrive%\Windows ^>^>"%%temp%%\unstc.bat" >>"%uns%"
-echo echo rd /s /q "%%systemdrive%%\SCRT" ^>^>"%%temp%%\unstc.bat" >>"%uns%"
+echo echo rd /s /q "%home%" ^>^>"%%temp%%\unstc.bat" >>"%uns%"
+echo reg delete "%home%" /f >>"%uns%"
 echo echo exit ^>^>"%%temp%%\unstc.bat" >>"%uns%"
 echo start %%temp%%\unstc.bat >>"%uns%"
 echo exit >>"%uns%"
@@ -122,7 +172,7 @@ echo logbegin: >>"%logs%"
 title 系统清理诊断程序[版本 %v%]
 if !errorlevel! == 1 (
 	set ierr=T
-	echo WARNING:初始化失败！
+	echo ERROR:初始化失败！
 ) 
 echo ECHO:初始化完成！
 echo ECHO:开始计时！
@@ -132,7 +182,7 @@ cls&&title %name%
 echo.
 cls&&title 系统清理诊断程序[版本 %v%]
 echo ---------------------------------------------------------开源说明------------------------------------------------------
-echo 系统清理诊断程序[版本 8.5.0.0 正式版] 
+echo 系统清理诊断程序[版本 8.5.2.0 正式版] 
 echo.
 echo 本程序使用GNU通用开源许可证第三版
 echo.
@@ -141,12 +191,12 @@ echo 修改后的新程序必须使用必须含有GNU通用许可证并提供源代码，告知获取源代码的方
 echo 不得限制他人对软件的使用、复制、修改和分发，严禁通过任意方式增加对用户的额外限制和在
 echo 本开源许可证下的任何权利不得被他人剥夺
 echo -----------------------------------------------------------------------------------------------------------------------
-if %auto% == "F" (
+if %auto% == F (
 	TIMEOUT /T 5
 )
 cls&&title 系统清理诊断程序[版本 %v%]
 echo -----------------------------------------------------------说明--------------------------------------------------------
-echo 系统清理诊断程序[版本 8.5.0.0 正式版] 
+echo 系统清理诊断程序[版本 8.5.2.0 正式版] 
 echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
 echo 本说明林先生（制作者）保留其所有解释权！
 echo 本说明说明了所有可能存在纠纷或刑事的任何问题！
@@ -161,7 +211,7 @@ echo 本软件已开源，请前往https://github.com/small-lin-jam/SCRT/！
 echo 警告：禁止在该工具中进行植入病毒等不正当行为！一经发现，严查！！！
 echo 如发现bug或植入病毒的情况可将bug信息和logs文件夹下的脚本一起发送至微信SHlin2012！
 echo -----------------------------------------------------------------------------------------------------------------------
-if %auto% == "F" (
+if %auto% == F (
 	TIMEOUT /T 5
 )
 echo. >>"%logs%"
@@ -172,7 +222,62 @@ echo 开始运行！
 echo 提示：如需修改任何设置项请前往"%systemdrive%\SCRT\uns.bat"进行重置操作
 echo.
 if not exist "%set%" (
+	set /p ip=您想要改变SCRT的运行文件存放目录吗？（y/n）:
+	if "!ip!"=="y" (
+		:input_loop
+		echo 请输入一个有效的目录路径：
+		set "dir_path="
+		set /p "dir_path=路径(将会被设置为：您输入的路径\): "
+		if "!dir_path!"=="" (
+    			echo 错误：路径不能为空！
+    			TIMEOUT /T 2
+    			goto input_loop
+		)
+		echo 正在验证目录路径...
+
+		:check_loop
+		if exist "!dir_path!\" (
+    			pushd "!dir_path!\" 2>nul
+    			if %errorLevel% equ 0 (
+        			popd
+        			echo ECHO:目录 "!dir_path!\" 存在且有效！
+				set home=!dir_path!\
+				reg add "HKLM\SOFTWARE\SCRT" /f
+				reg add "HKLM\SOFTWARE\SCRT" /v "home" /t REG_SZ /d !dir_path!\ /f
+        			goto end_loop
+			) else (
+				echo WARNING"!dir_path!" 存在但可能不是一个有效的目录或无法访问
+			)
+		) else (
+			echo ERROR:目录 "!dir_path!" 不存在
+		)
+		set "retry="
+		echo.
+		echo 请选择：
+		echo [1] 重试（输入新路径）
+		echo [2] 继续等待（目录可能正在创建中）
+		echo [3] 退出
+		set /p "retry=请选择 (1/2/3): "
+		if /i "!retry!"=="1" goto input_loop
+		if /i "!retry!"=="3" goto end_loop
+		echo 等待 5 秒后重新检查...
+		TIMEOUT /T 5
+		goto check_loop
+
+		:end_loop
+		echo 本次更改将在下次启动中生效，如果愿意，请自行删除%systemdrive%\SCRT
+		echo 目录设置已完成！
+		echo [%date% %time%]scrt_home: >>"%logs%"
+	) else if "!ip!"=="n" (
+		echo 跳过设置过程成功！
+		echo [%date% %time%]scrt_home:standard >>"%logs%"
+	 ) else (
+		echo 无效输入，请输入y或 n。
+		echo [%date% %time%]auto mode:ERROR >>"%logs%"
+	)
+	echo [%date% %time%]home_dir set >>"%logs%"
 	echo SCRT-main.set: >"%set%"
+	echo.
 	echo 静默运行说明：当开启静默模式后，所有延时代码将不会运行，并禁用本程序的ping测试
 	echo                           适用于需要自启动或仅需要功能不需要UI的人
 	set /p ip=您想让SCRT静默运行吗？（y/n）:
@@ -215,7 +320,7 @@ if not exist "%set%" (
 	if "!ip!"=="y" (
 		reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableLUA /t REG_DWORD /d "0" /f
 		echo ECHO:正在启用自启动……
-		if %auto% == "F" (
+		if %auto% == F (
 			Schtasks /Create /SC ONLOGON /TN "SCRT" /TR "%SCRT%" /F
 		) else (
 			echo start %SCRT% /min >"%subat%"
@@ -225,7 +330,7 @@ if not exist "%set%" (
 		echo ECHO:启用自启动完成！
 		if !errorlevel! == 1 (
 			set UACerr=T
-			echo WARNING:错误！
+			echo ERROR:错误！
 			echo [%date% %time%]startup set error >>"%logs%"
 		) 
 		set su=T
@@ -314,7 +419,7 @@ echo. >>"%logs%"
 echo ---------------------------------------------------------------------------------------------------- >>"%logs%"
 echo network-ping: >>"%logs%"
 echo. >>"%logs%"
-if %auto% == "F" (
+if %auto% == F (
 	echo ping#1:www.baidu.com >>"%logs%"
 	echo 正在清理网络缓存……
 	del "%userprofile%\Local Settings\Temporary Internet Files\*.*" /s /q /f >nul 2>nul
@@ -397,7 +502,7 @@ echo. >>"%logs%"
 echo [%date% %time%]files cleaned >>"%logs%"
 echo.
 echo 清理完成！
-if %auto% == "F" (
+if %auto% == F (
 	TIMEOUT /t 2
 )
 %cls%&&echo 开始后台修复系统文件！
@@ -410,7 +515,7 @@ if %mrts% == T (
 	echo mrt /q /f:y >>"%SFCD%"
 	if !errorlevel! == 1 (
 		set mrterr=T
-		echo WARNING:mrt命令写入失败！
+		echo ERROR:mrt命令写入失败！
 		echo [%date% %time%]mrt error >>"%logs%"
 	) 
 )
@@ -421,11 +526,11 @@ if %sfcs% == T (
 	echo 请等待sfc.bat自动修复完成
 	if !errorlevel! == 1 (
 		set serr=T
-		echo WARNING:%SFCD%打开失败！
+		echo ERROR:%SFCD%打开失败！
 		echo [%date% %time%]sfc error >>"%logs%"
 	)
 	echo.
-	if %auto% == "F" (
+	if %auto% == F (
 		TIMEOUT /t 5
 	)
 )
@@ -450,7 +555,7 @@ echo ECHO:计算完成！运行时间:%runtime%！
 echo ECHO:写入日志中……
 echo set: >>"%logs%"
 echo auto mode=%auto% >>"%logs%"
-echo staut up=%su% >>"%logs%"
+echo start up=%su% >>"%logs%"
 echo repair mode=%sfcs% >>"%logs%"
 echo mrt=%mrts% >>"%logs%"
 echo set end >>"%logs%"
@@ -489,7 +594,7 @@ echo.
 echo 本次运行时间：%runtime%
 echo.
 echo 已完成！
-if %auto% == "F" (
+if %auto% == F (
 	echo 5秒后自动退出......
 	TIMEOUT /T 5
 )
@@ -501,7 +606,7 @@ rem 本文件已经开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-
 rem 本文件开源！
 rem 备用代码信息begin
 rem 制作者：林先生。制作团队：Steven Lin Studio（上海木木工作室）。保留所有权利。
-rem 系统清理诊断程序[版本 8.5.0.0正式版]
+rem 系统清理诊断程序[版本 8.5.2.0 正式版]
 rem Steven Lin（林先生）版权所有
 rem 本程序受个人版权保护！
 rem 备用代码信息end
