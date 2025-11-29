@@ -4,14 +4,14 @@ color 0A&&mode con COLS=120 LINES=50
 setlocal enabledelayedexpansion
 chcp 936
 echo 制作者：林先生
-echo 系统清理诊断程序[版本 8.5.2.0 正式版]
+echo 系统清理诊断程序[版本 8.5.2.1 正式版]
 echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
 echo 本文件已开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-lin-jam/SCRT/！
 echo ECHO:初始化中……
 echo ECHO:设置中……
 echo ECHO:正在设置基础变量……
 set d=%~s0
-set v=8.5.2.0 正式版
+set v=8.5.2.1 正式版
 set name=系统清理诊断程序
 set fname=%~n0%
 set type=%~x0
@@ -103,7 +103,7 @@ if exist "%set%" (
 set su=F
 set sfcs=F
 set mrts=F
-set UACerr=F
+set suserr=F
 set ierr=F
 set nperr=F
 set cerr=F
@@ -164,7 +164,7 @@ echo ---------------------------------------------------------------------------
 echo SCRT-runbegintime:%date% %time% >>"%logs%"
 echo SCRT-vision:%v% >>"%logs%"
 echo.
-echo SCRT-UACerr:%UACerr% >>"%logs%"
+echo SCRT-suserr:%suserr% >>"%logs%"
 echo.
 echo runbegin >>"%logs%"
 echo ---------------------------------------------------------------------------------------------------- >>"%logs%"
@@ -182,7 +182,7 @@ cls&&title %name%
 echo.
 cls&&title 系统清理诊断程序[版本 %v%]
 echo ---------------------------------------------------------开源说明------------------------------------------------------
-echo 系统清理诊断程序[版本 8.5.2.0 正式版] 
+echo 系统清理诊断程序[版本 8.5.2.1 正式版] 
 echo.
 echo 本程序使用GNU通用开源许可证第三版
 echo.
@@ -196,7 +196,7 @@ if %auto% == F (
 )
 cls&&title 系统清理诊断程序[版本 %v%]
 echo -----------------------------------------------------------说明--------------------------------------------------------
-echo 系统清理诊断程序[版本 8.5.2.0 正式版] 
+echo 系统清理诊断程序[版本 8.5.2.1 正式版] 
 echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
 echo 本说明林先生（制作者）保留其所有解释权！
 echo 本说明说明了所有可能存在纠纷或刑事的任何问题！
@@ -313,12 +313,8 @@ if not exist "%set%" (
 	)
 	echo [%date% %time%]cleanmgr set >>"%logs%"
 	echo.
-	echo 警告：自启动扩展项为危险项，会关闭用户账户控制（简称UAC），您的
-	echo       电脑一旦被病毒感染将会破坏您的电脑，请谨慎开启（推荐与
-	echo       杀毒软件配合使用）！
-	set /p ip=您想要让SCRT自启动并安静运行吗？（y/n）:
+	set /p ip=您想要让SCRT自启动运行吗？（y/n）:
 	if "!ip!"=="y" (
-		reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableLUA /t REG_DWORD /d "0" /f
 		echo ECHO:正在启用自启动……
 		if %auto% == F (
 			Schtasks /Create /SC ONLOGON /TN "SCRT" /TR "%SCRT%" /F
@@ -329,7 +325,7 @@ if not exist "%set%" (
 		)
 		echo ECHO:启用自启动完成！
 		if !errorlevel! == 1 (
-			set UACerr=T
+			set suserr=T
 			echo ERROR:错误！
 			echo [%date% %time%]startup set error >>"%logs%"
 		) 
@@ -562,7 +558,7 @@ echo set end >>"%logs%"
 echo. >>"%logs%"
 echo errors: >>"%logs%"
 echo. >>"%logs%"
-echo UAC error=%UACerr% >>"%logs%"
+echo sus error=%suserr% >>"%logs%"
 echo initialization error=%ierr% >>"%logs%"
 echo network-ping error=%nperr% >>"%logs%"
 echo clean error=%cerr% >>"%logs%"
@@ -583,7 +579,6 @@ echo ECHO:写入日志成功！
 %cls%
 echo 运行日志在%logs%中
 echo.
-echo UAC自动更改将会在下一次启动时生效！
 echo 建议不要把软件安装在%systemdrive%\盘中哦！
 echo 如要加快启动速度，请关闭无用自启动项！
 echo mrt扫描速度较慢，如果已经开启了此功能，请耐心等待！
@@ -606,7 +601,7 @@ rem 本文件已经开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-
 rem 本文件开源！
 rem 备用代码信息begin
 rem 制作者：林先生。制作团队：Steven Lin Studio（上海木木工作室）。保留所有权利。
-rem 系统清理诊断程序[版本 8.5.2.0 正式版]
+rem 系统清理诊断程序[版本 8.5.2.1 正式版]
 rem Steven Lin（林先生）版权所有
 rem 本程序受个人版权保护！
 rem 备用代码信息end
