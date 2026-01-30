@@ -426,19 +426,14 @@ if %auto% == F (
 	ipconfig /flushdns
 	echo [%date% %time%]Temporary DNS cleaned >>"%logs%"
 	echo 刷新缓存完成！
-	echo.
-	echo 正在测试网络连通性（www.baidu.com）……
-	ping www.baidu.com
-	echo [%date% %time%]ping www.baidu.com completed >>"%logs%"
-	echo 网络连通性已测试完成！
-	echo 网络测试已完成！
-	TIMEOUT /T 2
-) else (
-	del "%userprofile%\Local Settings\Temporary Internet Files\*.*" /s /q /f >nul 2>nul
-	echo [%date% %time%]Temporary Internet Files cleaned >>"%logs%"
-	ipconfig /flushdns
-	echo [%date% %time%]Temporary DNS cleaned >>"%logs%"
 )
+echo.
+echo 正在测试网络连通性（www.baidu.com）……
+ping www.baidu.com
+echo [%date% %time%]ping www.baidu.com completed >>"%logs%"
+echo 网络连通性已测试完成！
+echo 网络测试已完成！
+TIMEOUT /T 2
 if !errorlevel! == 1 (
 	set nperr=T
 	echo [%date% %time%]ping error >>"%logs%"
@@ -447,26 +442,6 @@ echo. >>"%logs%"
 echo network-ping end >>"%logs%"
 echo. >>"%logs%"
 %cls%&&echo 正在清理电脑垃圾文件……
-echo clean up directory: >>"%logs%"
-echo. >>"%logs%"
-echo files#1:%systemdrive%\*.tmp >>"%logs%"
-echo files#2:%systemdrive%\*.temp >>"%logs%"
-echo files#3:%systemdrive%\*.old >>"%logs%"
-echo directory#1:%windir%\KB*.log >>"%logs%"
-echo directory#2:%temp% >>"%logs%"
-echo directory#3:%windir%\Downloaded Program Files >>"%logs%"
-echo directory#4:%windir%\SoftwareDistribution\Download >>"%logs%"
-echo directory#5:%windir%\System32\LogFiles >>"%logs%"
-echo directory#6:%windir%\Help >>"%logs%"
-echo directory#7:%userprofile%\Cookies >>"%logs%"
-echo directory#8:%userprofile%\Recent >>"%logs%"
-echo directory#9:%userprofile%\AppData\Local\Microsoft\Windows\INetCache\IE >>"%logs%"
-echo directory#10:%systemdrive%\$WINDOWS.~BT >>"%logs%"
-echo directory#11:%systemdrive%\ProgramData\Microsoft\Windows\WER >>"%logs%"
-echo directory#12:%userprofile%\AppData\Local\CrashDumps >>"%logs%"
-echo. >>"%logs%"
-echo clean up directory end >>"%logs%"
-echo. >>"%logs%"
 echo 如遇清理卡住，请稍等一会……
 echo.
 echo 后台清理中……
