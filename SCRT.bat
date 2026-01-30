@@ -415,25 +415,25 @@ echo. >>"%logs%"
 echo ---------------------------------------------------------------------------------------------------- >>"%logs%"
 echo network-ping: >>"%logs%"
 echo. >>"%logs%"
-if %auto% == F (
-	echo ping#1:www.baidu.com >>"%logs%"
-	echo 正在清理网络缓存……
-	del "%userprofile%\Local Settings\Temporary Internet Files\*.*" /s /q /f >nul 2>nul
-	echo [%date% %time%]Temporary Internet Files cleaned >>"%logs%"
-	echo 清理完成！
-	echo.
-	echo 正在刷新DNS缓存……
-	ipconfig /flushdns
-	echo [%date% %time%]Temporary DNS cleaned >>"%logs%"
-	echo 刷新缓存完成！
-)
+echo ping#1:www.baidu.com >>"%logs%"
+echo 正在清理网络缓存……
+del "%userprofile%\Local Settings\Temporary Internet Files\*.*" /s /q /f >nul 2>nul
+echo [%date% %time%]Temporary Internet Files cleaned >>"%logs%"
+echo 清理完成！
 echo.
-echo 正在测试网络连通性（www.baidu.com）……
-ping www.baidu.com
-echo [%date% %time%]ping www.baidu.com completed >>"%logs%"
-echo 网络连通性已测试完成！
-echo 网络测试已完成！
-TIMEOUT /T 2
+echo 正在刷新DNS缓存……
+ipconfig /flushdns
+echo [%date% %time%]Temporary DNS cleaned >>"%logs%"
+echo 刷新缓存完成！
+if %auto% == F (
+	echo.
+	echo 正在测试网络连通性（www.baidu.com）……
+	ping www.baidu.com
+	echo [%date% %time%]ping www.baidu.com completed >>"%logs%"
+	echo 网络连通性已测试完成！
+	echo 网络测试已完成！
+	TIMEOUT /T 2
+)
 if !errorlevel! == 1 (
 	set nperr=T
 	echo [%date% %time%]ping error >>"%logs%"
