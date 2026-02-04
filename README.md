@@ -5,12 +5,12 @@
   <img src="icon.ico" alt="SCRT图标" width="80" height="80">  
 </div>  
 
-[![Forks](https://img.shields.io/github/forks/small-lin-jam/SCRT.svg?style=for-the-badge)](https://github.com/small-lin-jam/SCRT/network/members)
-[![Stargazers](https://img.shields.io/github/stars/small-lin-jam/SCRT.svg?style=for-the-badge)](https://github.com/small-lin-jam/SCRT/stargazers)
-[![Issues](https://img.shields.io/github/issues/small-lin-jam/SCRT.svg?style=for-the-badge)](https://github.com/small-lin-jam/SCRT/issues)
-[![Release](https://img.shields.io/github/v/release/small-lin-jam/SCRT?style=for-the-badge)](https://github.com/small-lin-jam/SCRT/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/small-lin-jam/SCRT/total?style=for-the-badge)](https://github.com/small-lin-jam/SCRT/releases/latest)
-[![License](https://img.shields.io/github/license/small-lin-jam/SCRT?style=for-the-badge&color=9370db)](https://github.com/small-lin-jam/SCRT/blob/main/LICENSE)  
+[![Forks](https://img.shields.io/github/forks/ShanghaiMumuPersonalStudio/SCRT.svg?style=for-the-badge)](https://github.com/ShanghaiMumuPersonalStudio/SCRT/network/members)
+[![Stargazers](https://img.shields.io/github/stars/ShanghaiMumuPersonalStudio/SCRT.svg?style=for-the-badge)](https://github.com/ShanghaiMumuPersonalStudio/SCRT/stargazers)
+[![Issues](https://img.shields.io/github/issues/ShanghaiMumuPersonalStudio/SCRT.svg?style=for-the-badge)](https://github.com/ShanghaiMumuPersonalStudio/SCRT/issues)
+[![Release](https://img.shields.io/github/v/release/ShanghaiMumuPersonalStudio/SCRT?style=for-the-badge)](https://github.com/ShanghaiMumuPersonalStudio/SCRT/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/ShanghaiMumuPersonalStudio/SCRT/total?style=for-the-badge)](https://github.com/ShanghaiMumuPersonalStudio/SCRT/releases/latest)
+[![License](https://img.shields.io/github/license/ShanghaiMumuPersonalStudio/SCRT?style=for-the-badge&color=9370db)](https://github.com/ShanghaiMumuPersonalStudio/SCRT/blob/main/LICENSE)  
 
 
 ---  
