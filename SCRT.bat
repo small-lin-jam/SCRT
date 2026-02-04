@@ -5,8 +5,8 @@ setlocal enabledelayedexpansion
 chcp 936
 echo 制作者：林先生
 echo 系统清理诊断程序[版本 8.5.2.1 正式版]
-echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
-echo 本文件已开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-lin-jam/SCRT/！
+echo 制作者：林先生。制作团队：Shanghai Mumu Personal Studio（上海木木个人工作室）
+echo 本文件已开源，使用GNU通用开源许可证第三版，请访问https://github.com/ShanghaiMumuPersonalStudio/SCRT！
 echo ECHO:初始化中……
 echo ECHO:设置中……
 echo ECHO:正在设置基础变量……
@@ -197,7 +197,7 @@ if %auto% == F (
 cls&&title 系统清理诊断程序[版本 %v%]
 echo -----------------------------------------------------------说明--------------------------------------------------------
 echo 系统清理诊断程序[版本 8.5.2.1 正式版] 
-echo 制作者：林先生。制作团队：Steven Lin Studio（上海木木个人工作室）。保留所有权利。
+echo 制作者：林先生。制作团队：Shanghai Mumu Personal Studio（上海木木个人工作室）
 echo 本说明林先生（制作者）保留其所有解释权！
 echo 本说明说明了所有可能存在纠纷或刑事的任何问题！
 echo.
@@ -207,8 +207,7 @@ echo 调用软件：cmd.exe；taskschd.msc；ping.exe；cleanmgr；SFC.exe
 echo 调用软件版权：版权所有 (C) Microsoft Corporation。保留所有权利。
 echo 网络连通性测试网址：www.baidu.com
 echo.
-echo 本软件已开源，请前往https://github.com/small-lin-jam/SCRT/！
-echo 警告：禁止在该工具中进行植入病毒等不正当行为！一经发现，严查！！！
+echo 本软件已开源，请前往https://github.com/ShanghaiMumuPersonalStudio/SCRT！
 echo 如发现bug或植入病毒的情况可将bug信息和logs文件夹下的脚本一起发送至微信SHlin2012！
 echo -----------------------------------------------------------------------------------------------------------------------
 if %auto% == F (
@@ -572,11 +571,10 @@ echo ECHO:正在退出……
 start /min %tc%
 endlocal
 exit
-rem 本文件已经开源，使用GNU通用开源许可证第三版，请访问https://github.com/small-lin-jam/SCRT/！
+rem 本文件已经开源，使用GNU通用开源许可证第三版，请访问https://github.com/ShanghaiMumuPersonalStudio/SCRT！
 rem 本文件开源！
 rem 备用代码信息begin
-rem 制作者：林先生。制作团队：Steven Lin Studio（上海木木工作室）。保留所有权利。
+rem 制作者：林先生。制作团队：Shanghai Mumu Personal Studio（上海木木工作室）。保留所有权利。
 rem 系统清理诊断程序[版本 8.5.2.1 正式版]
-rem Steven Lin（林先生）版权所有
-rem 本程序受个人版权保护！
+rem 林先生版权所有
 rem 备用代码信息end
